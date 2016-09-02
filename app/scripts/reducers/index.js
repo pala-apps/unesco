@@ -30,12 +30,5 @@ const initState = {
 }
 
 export default (state = initState, action) => {
-
-  switch ( action.type ) {
-      case "GET_SITES":
-        return state
-      default:
-        return state
-  }
-
+    return state
 }

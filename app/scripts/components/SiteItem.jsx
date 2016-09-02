@@ -6,7 +6,7 @@ let SiteItem = ( { site } ) => {
     <div className="panel panel-default">
       <div className="panel-body">
         <div className="panel-body-content">
-
+        
           <div className="media">
             <div className="media-body">
               <h3 className="media-heading"><a href="#">{ site.name }</a></h3>
