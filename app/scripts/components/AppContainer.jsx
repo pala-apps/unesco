@@ -7,8 +7,12 @@ import SiteFocused from './SiteFocused'
 import actions from '../actions/actions'
 
 
-let AppContainer = ( props ) => {
 
+const AppContainer = ( props ) => {
+
+  const removeFocus = ()=>{
+    props.dispatch( actions.setFocusedSite( null ) )
+  }
   const focusOnSite = ( site )=>{
     props.dispatch( actions.setFocusedSite(site.unique_number) )
   }
@@ -18,7 +22,7 @@ let AppContainer = ( props ) => {
     const focusedSite = props.sites.find((site)=>{
       return site.unique_number === props.focusedSiteId
     })
-    mainDisplay = <SiteFocused site={ focusedSite } onPanelClick={ focusOnSite } />
+    mainDisplay = <SiteFocused site={ focusedSite } onReturnClick={ removeFocus } />
   }else{
     mainDisplay = <SiteList sites={ props.sites } onPanelClick={ focusOnSite } />
   }
@@ -31,12 +35,5 @@ let AppContainer = ( props ) => {
   )
 }
 
-// function mapDispatchToProps(dispatch){
-//   return {
-//     actions: bindActionCreators(actions, dispatch)
-//   }
-// }
 
-AppContainer = connect( state => state )( AppContainer )
-
-export default AppContainer
+export default connect( state => state )( AppContainer )

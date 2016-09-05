@@ -1,10 +1,10 @@
 import React from 'react';
 
-let SiteFocused = ( {site} )=> {
+let SiteFocused = ( props )=> {
   return (
     <div>
-      <h4> { site.name_en } </h4>
-      <a> back </a>
+      <h4> { props.site.name_en } </h4>
+      <a onClick={ props.onReturnClick }> back </a>
     </div>
   )
 }
