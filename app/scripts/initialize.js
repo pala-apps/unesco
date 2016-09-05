@@ -23,6 +23,6 @@ request.open("GET", "data/sites.json")
 request.onload = function(){
   // console.log("got the stites", request.responseText );
   const sites = JSON.parse( request.responseText );
-  store.dispatch( actions.addSites( sites ) )
+  store.dispatch( actions.addSites( sites.slice(0,100) ) )
 }
 request.send();
