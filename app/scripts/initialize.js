@@ -33,7 +33,6 @@ function locationSuccess( location ) {
 // }
 
 let request = new XMLHttpRequest();
-console.log("setting of request")
 request.open("GET", "data/sites.json")
 request.onload = function(){
   const sites = JSON.parse( request.responseText );
