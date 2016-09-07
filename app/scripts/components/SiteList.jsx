@@ -1,10 +1,10 @@
 import React from 'react'
 import SiteItem from './SiteItem'
 
-let SiteList = ( { sites } ) => {
 
-  const panels = sites.map( (site) => {
-    return ( <SiteItem key={site.id_no} site={ site } /> )
+let SiteList = ( props ) => {
+  const panels = props.sites.map( (site) => {
+    return ( <SiteItem key={site.unique_number} site={ site } onPanelClick={ props.onPanelClick } /> )
   })
 
   return (

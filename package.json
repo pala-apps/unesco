@@ -13,6 +13,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "express": "^4.14.0",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-redux": "^4.4.5",
