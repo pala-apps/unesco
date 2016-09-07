@@ -18,10 +18,8 @@ render(
 );
 
 let request = new XMLHttpRequest();
-console.log("setting of request")
 request.open("GET", "data/sites.json")
 request.onload = function(){
-  // console.log("got the stites", request.responseText );
   const sites = JSON.parse( request.responseText );
   store.dispatch( actions.addSites( sites.slice(0,100) ) )
 }
