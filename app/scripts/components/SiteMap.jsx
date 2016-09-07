@@ -6,17 +6,19 @@ import SiteMarker from './SiteMarker.jsx'
 
 const SiteMap = ( props )=>{
   const markers = props.sites.map((site)=>{
-     return <SiteMarker key={site.unique_number} lat={site.latitude} lng={site.longitude} text={'A'} />
+     return <SiteMarker name={site.name_en} key={site.unique_number} lat={site.latitude} lng={site.longitude} text={'A'} />
   })
 
   console.log('markers', markers)
   return(
     <GoogleMap
-     defaultCenter={ {lat: 59.938043, lng: 30.337157} }
-     defaultZoom={9}>
+     center={ {lat: props.center.latitude, lng: props.center.longitude} }
+     zoom={5}>
      {markers}
     </GoogleMap>
   )
 }
+
+SiteMap.defaultProps = { center: {latitude:1, longitude:1} };
 
 export default SiteMap

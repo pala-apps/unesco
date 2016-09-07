@@ -2,13 +2,12 @@ import React, {PropTypes, Component} from 'react';
 
 import {greatPlaceStyle} from './SiteMarkerStyles.js';
 
-export default class MyGreatPlace extends Component {
-
-  render() {
-    return (
-       <div style={greatPlaceStyle}>
-          A
-       </div>
-    );
-  }
+const SiteMarker = (props)=>{
+  return(
+    <div style={greatPlaceStyle}>
+        { props.name }
+    </div>
+  )
 }
+
+export default SiteMarker

@@ -20,7 +20,7 @@ const AppContainer = ( props ) => {
 
   let mainDisplay = null
   const displaySites = props.sites.slice(0,100)
-  mainDisplay = <SiteMap sites={displaySites}></SiteMap>
+  mainDisplay = <SiteMap center={props.userLocation} sites={displaySites}></SiteMap>
   // if(props.focusedSiteId){
   //   const focusedSite = props.sites.find((site)=>{
   //     return site.unique_number === props.focusedSiteId
