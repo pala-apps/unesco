@@ -18,3 +18,11 @@ it("should handle SET_FOCUSED_SITE ", () => {
   }
   expect( reducer({}, action).focusedSiteId ).toEqual( 1 )
 })
+
+it( "should handle SET_USER_LOCATION", () => {
+  const action = {
+    type: "SET_USER_LOCATION",
+    location: { latitude: 1, longitude: 2 }
+  }
+  expect( reducer({}, action).userLocation ).toEqual( { latitude: 1, longitude: 2 } )
+})

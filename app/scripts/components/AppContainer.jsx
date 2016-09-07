@@ -24,7 +24,8 @@ const AppContainer = ( props ) => {
     })
     mainDisplay = <SiteFocused site={ focusedSite } onReturnClick={ removeFocus } />
   }else{
-    mainDisplay = <SiteList sites={ props.sites } onPanelClick={ focusOnSite } />
+    const displaySites = props.sites.slice(0,100)
+    mainDisplay = <SiteList sites={ displaySites } onPanelClick={ focusOnSite } />
   }
 
   return(

@@ -8,7 +8,7 @@ import sitesReducer  from './reducers'
 import AppContainer from './components/AppContainer'
 import { Provider } from 'react-redux';
 import actions from './actions/actions'
-let store = createStore(sitesReducer);
+let store = createStore(sitesReducer, window.devToolsExtension && window.devToolsExtension());
 
 render(
   <Provider store={store}>
@@ -17,12 +17,27 @@ render(
   document.getElementById('app')
 );
 
+console.log( 'updates' )
+
+function getLocation() {
+  navigator.geolocation.getCurrentPosition( locationSuccess )
+}
+
+function locationSuccess( location ) {
+  console.log('got location', location)
+  store.dispatch( actions.setUserLocation( {latitude:location.coords.latitude, longitude:location.coords.longitude } ) )
+}
+
+// function calcDistances( lat, lng ) {
+//   const sites = store.getState( 'sites' )
+// }
+
 let request = new XMLHttpRequest();
 console.log("setting of request")
 request.open("GET", "data/sites.json")
 request.onload = function(){
-  // console.log("got the stites", request.responseText );
   const sites = JSON.parse( request.responseText );
-  store.dispatch( actions.addSites( sites.slice(0,100) ) )
+  store.dispatch( actions.addSites( sites ) )
+  getLocation()
 }
 request.send();
