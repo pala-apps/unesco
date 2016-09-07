@@ -10,7 +10,7 @@ let SiteItem = ( props ) => {
           <div className="media">
             <div className="media-body">
               <h3 className="media-heading"> { site.name_en } </h3>
-              <small>{ site.country }</small>
+              <small>{ site.states_name_en }</small>
               <ul>
                 <li>Date Inscribed: { site.date_inscribed }</li>
                 <li>Category: { site.category }</li>
