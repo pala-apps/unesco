@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Nav from './Nav'
 import SiteList from './SiteList'
 import SiteFocused from './SiteFocused'
+import SiteMap from './SiteMap'
 
 import actions from '../actions/actions'
 
@@ -18,18 +19,20 @@ const AppContainer = ( props ) => {
   }
 
   let mainDisplay = null
-  if(props.focusedSiteId){
-    const focusedSite = props.sites.find((site)=>{
-      return site.unique_number === props.focusedSiteId
-    })
-    mainDisplay = <SiteFocused site={ focusedSite } onReturnClick={ removeFocus } />
-  }else{
-    const displaySites = props.sites.slice(0,100)
-    mainDisplay = <SiteList sites={ displaySites } onPanelClick={ focusOnSite } />
-  }
+  const displaySites = props.sites.slice(0,100)
+  mainDisplay = <SiteMap sites={displaySites}></SiteMap>
+  // if(props.focusedSiteId){
+  //   const focusedSite = props.sites.find((site)=>{
+  //     return site.unique_number === props.focusedSiteId
+  //   })
+  //   mainDisplay = <SiteFocused site={ focusedSite } onReturnClick={ removeFocus } />
+  // }else{
+  //   const displaySites = props.sites.slice(0,100)
+  //   mainDisplay = <SiteList sites={ displaySites } onPanelClick={ focusOnSite } />
+  // }
 
   return(
-    <div>
+    <div style= {{width:'100%', height:'100vh'}}>
       <Nav />
       { mainDisplay }
     </div>
