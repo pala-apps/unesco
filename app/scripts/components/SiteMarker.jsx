@@ -1,11 +1,10 @@
 import React, {PropTypes, Component} from 'react';
 
-import {greatPlaceStyle} from './SiteMarkerStyles.js';
-
 const SiteMarker = (props)=>{
   return(
-    <div style={greatPlaceStyle}>
-        { props.name }  
+    <div className="marker">
+      <div className="marker-circle"></div>
+      <div className="marker-triangle"></div>
     </div>
   )
 }

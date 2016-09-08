@@ -1244,3 +1244,28 @@ small, .small {
   color: #000000;
   font-size: 20px;
 }
+
+
+/*marker*/
+.marker{
+  position: relative;
+  width:15px;
+  height:25px;
+}
+.marker-circle{
+  border: 6px solid #2f8877;
+  background: transparent;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+}
+.marker-triangle{
+  position: relative;
+  width:0px;
+  height:0px;
+  border-left:6px solid transparent;
+  border-right:6px solid transparent;
+  border-top: 10px solid #2f8877;
+  left: 2px;
+  bottom: 3px;
+}
