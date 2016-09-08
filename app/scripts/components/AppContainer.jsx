@@ -28,25 +28,36 @@ const AppContainer = ( props ) => {
     props.dispatch( actions.toggleMap(false) )
   }
 
-  let mainDisplay = null
-  if(props.focusedSiteId){
-    const focusedSite = props.sites.find((site)=>{
-      return site.unique_number === props.focusedSiteId
+  const getFocusedSite=(sites, id)=>{
+    if(!id){return null}
+    return sites.find((site)=>{
+      return site.unique_number === id
     })
-    mainDisplay = <SiteFocused site={ focusedSite } onReturnClick={ removeFocus } />
-  }else{
+  }
 
-    if(props.showMap){
-      mainDisplay = <SiteMap  sites={props.sites} center={props.userLocation} />
-    }
-    else{
+  let mainDisplay = null
+
+
+  if(props.showMap){
+    mainDisplay = <SiteMap
+      sites={ props.sites }
+      userCenter={ props.userLocation }
+      focusedSite={ getFocusedSite(props.sites, props.focusedSiteId) }
+      onMarkerClick={ focusOnSite }
+    />
+  }
+  else{
+    if(props.focusedSiteId){
+      mainDisplay = <SiteFocused site={ getFocusedSite(props.sites, props.focusedSiteId) } onReturnClick={ removeFocus } />
+    }else{
       const displaySites = props.sites.slice(0,100)
       mainDisplay = <SiteList sites={ displaySites } onPanelClick={ focusOnSite } />
     }
+
   }
 
   return(
-    <div style= {{width:'100%', height:'100vh'}}>
+    <div style= {{width:'100%', height:'500px'}}>
       <Nav onClickList={displayList} onClickMap={displayMap}/>
       { mainDisplay }
     </div>

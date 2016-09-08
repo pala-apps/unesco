@@ -1,5 +1,5 @@
-import swi from './service_worker_init'
-swi()
+// import swi from './service_worker_init'
+// swi()
 
 import React from 'react';
 import { render } from 'react-dom';

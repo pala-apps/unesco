@@ -15,20 +15,35 @@ const createMapOptions = (maps)=>{
 
 const SiteMap = ( props )=>{
   const markers = props.sites.map((site)=>{
-     return <SiteMarker name={site.name_en} key={site.unique_number} lat={site.latitude} lng={site.longitude} text={'A'} />
+     return <SiteMarker
+      key={site.unique_number}
+      site={site}
+      lat={site.latitude}
+      lng={site.longitude}
+      onMarkerClick={props.onMarkerClick}
+    />
   })
 
   console.log('markers', markers)
+  let siteInfo = null
+  let center = {lat: props.userCenter.latitude, lng: props.userCenter.longitude}
+  if(props.focusedSite){
+    siteInfo = <div> { props.focusedSite.name_en }</div>
+    center = {lat: props.focusedSite.latitude, lng: props.focusedSite.longitude}
+  }
   return(
-    <GoogleMap
-     options= { createMapOptions }
-     center={ {lat: props.center.latitude, lng: props.center.longitude} }
-     zoom={5}>
-     {markers}
-    </GoogleMap>
+      <div style= {{width:'100%', height:'200px'}}>
+        <GoogleMap
+         options= { createMapOptions }
+         center={ center }
+         zoom={5}>
+         {markers}
+        </GoogleMap>
+        { siteInfo }
+      </div>
   )
 }
 
-SiteMap.defaultProps = { center: {latitude:1, longitude:1} };
+SiteMap.defaultProps = { userCenter: {latitude:1, longitude:1} };
 
 export default SiteMap
