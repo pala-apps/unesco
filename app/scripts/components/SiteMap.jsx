@@ -3,6 +3,7 @@ import React from 'react'
 // import MapGL from 'react-map-gl';
 import GoogleMap from 'google-map-react';
 import SiteMarker from './SiteMarker.jsx'
+import UserMarker from './UserMarker.jsx'
 import Animation from 'react-addons-css-transition-group'
 
 const createMapOptions = (maps)=>{
@@ -45,6 +46,7 @@ const SiteMap = ( props )=>{
               </div>
     center = {lat: props.focusedSite.latitude, lng: props.focusedSite.longitude}
   }
+
   return(
       <div style= {{width:'100%', height:'90%'}}>
         <GoogleMap
@@ -52,6 +54,10 @@ const SiteMap = ( props )=>{
          center={ center }
          zoom={5}>
          {markers}
+         <UserMarker
+           lat={props.userCenter.latitude}
+           lng={props.userCenter.longitude}
+          />
         </GoogleMap>
         <Animation
           transitionName="slide-top"

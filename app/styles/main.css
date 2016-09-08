@@ -1314,3 +1314,26 @@ small, .small {
   left: 2px;
   bottom: 3px;
 }
+
+.marker-circle-user{
+  border: 6px solid #5d9cec;
+  background: white;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  animation: pulse 1200ms infinite;
+}
+
+@keyframes pulse {
+  0%{
+    border: 6px solid #5d9cec;
+  }
+  50%{
+    border: 6px solid #4a89dc;
+    transform: scale(1.5);
+  }
+  100%{
+    border: 6px solid #5d9cec;
+    transform: scale(1);
+  }
+}
