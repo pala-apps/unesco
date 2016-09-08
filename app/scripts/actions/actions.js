@@ -16,6 +16,12 @@ const actions = {
       type: "SET_USER_LOCATION",
       location
     }
+  },
+  toggleMap:(show)=>{
+    return{
+      type:"TOGGLE_MAP",
+      show
+    }
   }
 
 }

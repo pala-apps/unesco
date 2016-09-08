@@ -26,3 +26,11 @@ it( "should handle SET_USER_LOCATION", () => {
   }
   expect( reducer({}, action).userLocation ).toEqual( { latitude: 1, longitude: 2 } )
 })
+
+it( "should handle TOGGLE_MAP", () => {
+  const action = {
+    type: "TOGGLE_MAP",
+    show: true
+  }
+  expect( reducer({}, action).showMap ).toEqual( true )
+})

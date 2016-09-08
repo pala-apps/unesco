@@ -18,22 +18,35 @@ const AppContainer = ( props ) => {
     props.dispatch( actions.setFocusedSite(site.unique_number) )
   }
 
+  const displayMap =()=>{
+    console.log("displaying map")
+    props.dispatch( actions.toggleMap(true) )
+  }
+
+  const displayList=()=>{
+    console.log("displaying list")
+    props.dispatch( actions.toggleMap(false) )
+  }
+
   let mainDisplay = null
-  const displaySites = props.sites.slice(0,100)
-  mainDisplay = <SiteMap center={props.userLocation} sites={displaySites}></SiteMap>
-  // if(props.focusedSiteId){
-  //   const focusedSite = props.sites.find((site)=>{
-  //     return site.unique_number === props.focusedSiteId
-  //   })
-  //   mainDisplay = <SiteFocused site={ focusedSite } onReturnClick={ removeFocus } />
-  // }else{
-  //   const displaySites = props.sites.slice(0,100)
-  //   mainDisplay = <SiteList sites={ displaySites } onPanelClick={ focusOnSite } />
-  // }
+  if(props.focusedSiteId){
+    const focusedSite = props.sites.find((site)=>{
+      return site.unique_number === props.focusedSiteId
+    })
+    mainDisplay = <SiteFocused site={ focusedSite } onReturnClick={ removeFocus } />
+  }else{
+    const displaySites = props.sites.slice(0,100)
+    if(props.showMap){
+      mainDisplay = <SiteMap  sites={displaySites} center={props.userLocation} />
+    }
+    else{
+      mainDisplay = <SiteList sites={ displaySites } onPanelClick={ focusOnSite } />
+    }
+  }
 
   return(
     <div style= {{width:'100%', height:'100vh'}}>
-      <Nav />
+      <Nav onClickList={displayList} onClickMap={displayMap}/>
       { mainDisplay }
     </div>
   )

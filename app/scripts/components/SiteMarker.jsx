@@ -5,7 +5,7 @@ import {greatPlaceStyle} from './SiteMarkerStyles.js';
 const SiteMarker = (props)=>{
   return(
     <div style={greatPlaceStyle}>
-        { props.name }
+        { props.name }  
     </div>
   )
 }

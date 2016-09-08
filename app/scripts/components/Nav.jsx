@@ -1,6 +1,6 @@
 import React from 'react'
 
-let Nav = () => {
+let Nav = (props) => {
 
   return(
     <nav className="navbar navbar-default">
@@ -9,9 +9,10 @@ let Nav = () => {
           <a href="/" className="brand">
             UNESCO
           </a>
-          <button id="toggleNav" type="button" className="navbar-toggle collapsed">
-            <i className="icon-menu"></i>
-          </button>
+        </div>
+        <div className="navbar-right">
+          <button onClick={props.onClickList}> ListView </button>
+          <button onClick={props.onClickMap}> MapView </button>
         </div>
       </div>
     </nav>

@@ -42,8 +42,13 @@ export default (state = initState, action) => {
       case "SET_FOCUSED_SITE":
         return Object.assign({}, state, {focusedSiteId: action.siteId})
       case "SET_USER_LOCATION":
+        if(!state.sites){
+          return Object.assign( {}, state, {userLocation: action.location})
+        }
         const sortedSites = sortSites(state.sites, action.location)
         return Object.assign( {}, state, {userLocation: action.location, sites: sortedSites})
+      case "TOGGLE_MAP":
+        return Object.assign( {}, state, {showMap: action.show})
       default:
         return state
     }
