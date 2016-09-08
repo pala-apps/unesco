@@ -3,6 +3,7 @@ import React from 'react'
 // import MapGL from 'react-map-gl';
 import GoogleMap from 'google-map-react';
 import SiteMarker from './SiteMarker.jsx'
+import Animation from 'react-addons-css-transition-group'
 
 const createMapOptions = (maps)=>{
     return {
@@ -28,18 +29,37 @@ const SiteMap = ( props )=>{
   let siteInfo = null
   let center = {lat: props.userCenter.latitude, lng: props.userCenter.longitude}
   if(props.focusedSite){
-    siteInfo = <div> { props.focusedSite.name_en }</div>
+    const site = props.focusedSite
+    siteInfo = <div key={site.unique_number} className="panel-animate-top">
+                <div className="media">
+                  <div className="media-body">
+                    <h3 className="media-heading"> { site.name_en } </h3>
+                    <small>{ site.states_name_en }</small>
+                    <ul>
+                      <li>Date Inscribed: { site.date_inscribed }</li>
+                      <li>Category: { site.category }</li>
+                      <li>Hectares: { site.area_hectares }</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
     center = {lat: props.focusedSite.latitude, lng: props.focusedSite.longitude}
   }
   return(
-      <div style= {{width:'100%', height:'200px'}}>
+      <div style= {{width:'100%', height:'90%'}}>
         <GoogleMap
          options= { createMapOptions }
          center={ center }
          zoom={5}>
          {markers}
         </GoogleMap>
+        <Animation
+          transitionName="slide-top"
+          transitionEnterTimeout={ 500 }
+          transitionLeaveTimeout={ 300 }
+          >
         { siteInfo }
+        </Animation>
       </div>
   )
 }

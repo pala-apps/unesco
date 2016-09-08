@@ -57,9 +57,9 @@ const AppContainer = ( props ) => {
   }
 
   return(
-    <div style= {{width:'100%', height:'500px'}}>
-      <Nav onClickList={displayList} onClickMap={displayMap}/>
+    <div className="app-content">
       { mainDisplay }
+      <Nav onClickList={displayList} onClickMap={displayMap}/>
     </div>
   )
 }

@@ -21,13 +21,30 @@ Logo/Brand
 }*/
 
 /* BASE STYLES */
+
+#app {
+  height: 100%;
+}
+
+.app-content {
+  height:100%;
+}
+
+.app-content .container {
+  height: 90%;
+  overflow-y: scroll;
+}
+
+body, html {
+  height: 100%;
+}
+
 body {
   margin: 0px;
   font-family: 'Open Sans', serif;
   font-size: 16px;
   color: #434A54;
   background-color: #E9E9E9;
-  height: 100vh;
 }
 
 h4, h5, h6 {
@@ -61,6 +78,7 @@ footer {
 }
 
 .container {
+  padding-top: 15px;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -796,11 +814,14 @@ footer {
 
 /* navbar */
 .navbar {
-  position: relative;
+  position: fixed;
+  height: 10%;
+  width: 100%;
 }
 
 .navbar-header {
   line-height: 40px;
+  float:left;
 }
 
 .navbar-nav {
@@ -827,6 +848,10 @@ footer {
   /*margin-bottom: 30px;*/
 }
 
+.navbar-right {
+  float: right !important;
+}
+
 .navbar-collapse {
   display: none;
 }
@@ -834,9 +859,6 @@ footer {
 @media (min-width: 768px) {
   .navbar-default {
     /*margin-bottom: 50px;*/
-  }
-  .navbar-header {
-    float: left;
   }
   .navbar-toggle {
     display: none;
@@ -908,7 +930,29 @@ footer {
   }
 }
 
+/* Animations */
+
+.slide-top-enter.slide-top-enter-active {
+  animation: slide-top 500ms 1;
+}
+
+@keyframes slide-top {
+  0% {
+    top: -500px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
 /* panels */
+
+.panel-animate-top {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  background-color: white;
+}
 
 .panel {
   margin-bottom: 20px;
