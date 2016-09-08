@@ -35,11 +35,12 @@ const AppContainer = ( props ) => {
     })
     mainDisplay = <SiteFocused site={ focusedSite } onReturnClick={ removeFocus } />
   }else{
-    const displaySites = props.sites.slice(0,100)
+
     if(props.showMap){
-      mainDisplay = <SiteMap  sites={displaySites} center={props.userLocation} />
+      mainDisplay = <SiteMap  sites={props.sites} center={props.userLocation} />
     }
     else{
+      const displaySites = props.sites.slice(0,100)
       mainDisplay = <SiteList sites={ displaySites } onPanelClick={ focusOnSite } />
     }
   }
