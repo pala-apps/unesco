@@ -22,6 +22,13 @@ const actions = {
       type:"TOGGLE_MAP",
       show
     }
+  },
+  addSiteImages:(siteId, imageUrls)=>{
+    return{
+      type:"ADD_SITE_IMAGES",
+      siteId,
+      imageUrls
+    }
   }
 
 }

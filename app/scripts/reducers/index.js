@@ -49,6 +49,14 @@ export default (state = initState, action) => {
         return Object.assign( {}, state, {userLocation: action.location, sites: sortedSites})
       case "TOGGLE_MAP":
         return Object.assign( {}, state, {showMap: action.show})
+      case "ADD_SITE_IMAGES":
+        const updatedSites = state.sites.map((site)=>{
+          if(site.unique_number == action.siteId){
+            return Object.assign({},site, {imageUrls: action.imageUrls})
+          }
+          return site
+        })
+        return Object.assign( {}, state, { sites: updatedSites })
       default:
         return state
     }
