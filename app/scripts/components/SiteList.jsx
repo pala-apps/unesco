@@ -1,5 +1,4 @@
 import React from 'react'
-import SiteItem from './SiteItem'
 import SiteHeader from './SiteHeader'
 
 
@@ -10,7 +9,7 @@ let SiteList = ( props ) => {
       <div key={site.unique_number} onClick={ () => { props.onPanelClick( site ) } }>
         <SiteHeader
           site={ site }
-          showingDetails={false} />
+        />
       </div>
     )
   })

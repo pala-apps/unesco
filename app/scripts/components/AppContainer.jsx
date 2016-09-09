@@ -11,6 +11,16 @@ import actions from '../actions/actions'
 
 const AppContainer = ( props ) => {
 
+  const removeFocusDisplayMap =()=>{
+    removeFocus()
+    displayMap()
+  }
+
+  const removeFocusDisplayList =()=>{
+    removeFocus()
+    displayList()
+  }
+
   const removeFocus = ()=>{
     props.dispatch( actions.setFocusedSite( null ) )
   }
@@ -67,13 +77,14 @@ const AppContainer = ( props ) => {
       focusedSite={ getFocusedSite(props.sites, props.focusedSiteId) }
       onMarkerClick={ focusOnSite }
       onClickClose={ removeFocus }
+      onToggleView={ displayList }
     />
   }
   else{
     if(props.focusedSiteId){
       mainDisplay = <SiteFocused
         site={ getFocusedSite(props.sites, props.focusedSiteId) }
-        onReturnClick={ removeFocus }
+        onToggleView={ displayMap }
         onClickClose={ removeFocus }
       />
     }else{
@@ -88,8 +99,8 @@ const AppContainer = ( props ) => {
       { mainDisplay }
       <Nav
         showMap={ props.showMap }
-        onClickList={displayList}
-        onClickMap={displayMap}
+        onClickList={removeFocusDisplayList}
+        onClickMap={removeFocusDisplayMap}
       />
     </div>
   )

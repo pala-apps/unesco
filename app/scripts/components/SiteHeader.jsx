@@ -1,9 +1,17 @@
 import React from 'react'
 
-function SiteHeader( {site, onClickClose, showingDetails} ){
+function SiteHeader( {site, onClickClose, showingDetails, onToggleView, showingMap} ){
   let closeButton = null
   if(onClickClose){
     closeButton = <button onClick={onClickClose}> Close X </button>
+  }
+  let toggleButton = null
+  if(onToggleView){
+    if(showingMap){
+      toggleButton = <button onClick={onToggleView}> More Info </button>
+    }else{
+      toggleButton = <button onClick={onToggleView}> See on Map </button>
+    }
   }
   return(
     <div className="panel panel-default">
@@ -15,6 +23,7 @@ function SiteHeader( {site, onClickClose, showingDetails} ){
               <small>{ site.states_name_en }</small>
               <div className="">
                 { closeButton }
+                { toggleButton }
               </div>
             </div>
           </div>

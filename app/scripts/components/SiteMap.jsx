@@ -30,8 +30,9 @@ const SiteMap = ( props )=>{
       <div className="panel-animate-top">
       <SiteHeader
         site={props.focusedSite}
-        showingDetails={false}
+        showingMap={true}
         onClickClose={props.onClickClose}
+        onToggleView={props.onToggleView}
       />
       </div>
     )
