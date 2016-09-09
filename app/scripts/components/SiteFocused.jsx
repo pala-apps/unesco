@@ -5,7 +5,7 @@ let SiteFocused = ( props )=> {
   let images = null
   if( props.site.imageUrls ){
     images = props.site.imageUrls.map((image,index)=>{
-      return <img key={image} src={image} ></img>
+      return <img className="img-responsive" key={image} src={image} ></img>
     })
   }
   return (
@@ -17,9 +17,15 @@ let SiteFocused = ( props )=> {
         onClickClose={props.onClickClose}
       />
       <div className='container'>
-        <h4> { props.site.name_en } </h4>
-        <p> {props.site.short_description_en}</p>
         { images }
+        <div className="panel panel-default">
+          <div className="panel-body">
+            <div className="panel-body-content">
+              <h4 className="text-muted text-small">Description</h4>
+              <div dangerouslySetInnerHTML={{__html: props.site.short_description_en}}></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

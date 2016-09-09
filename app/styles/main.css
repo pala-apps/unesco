@@ -11,29 +11,8 @@ Sidebars
 Logo/Brand
 */
 @import 'https://fonts.googleapis.com/css?family=Open+Sans';
-/*@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600);
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
-@import 'https://fonts.googleapis.com/css?family=Lora';*/
-
-/*@font-face {
-  font-family: 'Open Sans';
-  src: url('fonts/Open_Sans/OpenSans-Regular.ttf')  format('truetype')
-}*/
 
 /* BASE STYLES */
-
-#app {
-  height: 100%;
-}
-
-.app-content {
-  height:100%;
-}
-
-.app-content .container {
-  height: calc(100% - 72px);
-  overflow-y: scroll;
-}
 
 body, html {
   height: 100%;
@@ -42,9 +21,9 @@ body, html {
 body {
   margin: 0px;
   font-family: 'Open Sans', serif;
-  font-size: 16px;
+  font-size: 14px;
   color: #434A54;
-  background-color: #E9E9E9;
+  background-color: #f9f9f9;
 }
 
 h4, h5, h6 {
@@ -75,6 +54,19 @@ footer {
 
 .img-responsive {
   width: 100%;
+}
+
+#app {
+  height: 100%;
+}
+
+.app-content {
+  height:100%;
+}
+
+.app-content > div {
+  height: calc(100% - 57px);
+  overflow-y: scroll;
 }
 
 .container {
@@ -1005,14 +997,6 @@ footer {
   font-weight: 400 !important;
 }
 
-.panel-body-content p {
-  font-family: 'Lora', serif;
-  font-size: 19px;
-  line-height: 34px;
-  font-weight: 100;
-  margin-bottom: 35px;
-}
-
 .panel-body-content ul {
   margin-bottom: 35px;
 }
@@ -1075,7 +1059,7 @@ footer {
 }
 
 .btn-default {
-  background-color: #48CFAD;
+  background-color: rgba(5,217,189,1);
   color: #FFFFFF;
   transition: background-color 0.2s ease-in-out;
 }
@@ -1168,140 +1152,6 @@ footer {
   color: #777;
 }
 
-.wrapper {
-  width: 100px;
-  height: 100px;
-  position: relative;
-}
-
-.mtn {
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: 100px solid #FFce54;
-}
-
-.mtn-shade {
-  position: absolute;
-  left: 10px;
-  top: 28px;
-  width: 0;
-  height: 0;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-top: 80px solid #F6bb42;
-  transform: rotate(37.4deg);
-}
-
-.snow {
-  position: absolute;
-  top: -1px;
-  left:29px;
-  width: 0;
-  height: 0;
-  border-left: 21px solid transparent;
-  border-right: 21px solid transparent;
-  border-bottom: 43px solid #f9f9f9;
-}
-
-.snow-line-1 {
-  height: 17px;
-  width: 17px;
-  background-color: #f9f9f9;
-  transform: rotate(45deg);
-  position: relative;
-  top: 29px;
-  right: 0px;
-  border-bottom-right-radius: 5px;
-}
-
-.snow-line-2 {
-  height: 25px;
-  width: 17px;
-  background-color: #f9f9f9;
-  transform: rotate(45deg);
-  position: absolute;
-  top: 27px;
-  right: -3px;
-  border-bottom-right-radius: 5px;
-}
-
-.cloud {
-  background-color: #e1e1e1;
-  height: 15px;
-  width: 20px;
-  position: relative;
-  z-index: 1;
-  top: 30px;
-  left: 19px;
-}
-
-.cloud-puff-1 {
-  position: relative;
-  bottom: 4px;
-  left: 10px;
-  background-color: #e1e1e1;
-  height: 19px;
-  width: 19px;
-  border-radius: 50%;
-}
-
-.cloud-puff-2 {
-  position: relative;
-  bottom: 30px;
-  right: 4px;
-  background-color: #e1e1e1;
-  height: 22px;
-  width: 22px;
-  border-radius: 50%;
-}
-
-.cloud-puff-3 {
-  position: relative;
-  bottom: 43px;
-  right: 9px;
-  background-color: #e1e1e1;
-  height: 17px;
-  width: 17px;
-  border-radius: 50%;
-}
-
-.tree {
-  position: absolute;
-  z-index: 2;
-  bottom: 0;
-  right: 32px;
-}
-
-.tree-stump {
-  height: 12px;
-  width: 8px;
-  background-color: brown;
-}
-
-.tree-shape-1 {
-  position: absolute;
-  bottom: 10px;
-  left: -5px;
-  width: 0;
-  height: 0;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-bottom: 15px solid #8cc152;
-}
-
-.tree-shape-2 {
-  position: absolute;
-  bottom: 18px;
-  left: -2px;
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-bottom: 9px solid #8cc152;
-}
-
 /* STATE STYLES */
 
 small, .small {
@@ -1352,10 +1202,10 @@ small, .small {
 .icon-round {
   height: 43px;
   width: 43px;
-  border: 1px solid #13a3d5;
+  border: 1px solid rgba(5,217,189,1);
   margin: 0 auto;
   border-radius: 50%;
-  color: #13a3d5;
+  color: rgba(5,217,189,1);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1419,7 +1269,7 @@ small, .small {
 }
 
 .text-blue {
-  color: #4a89dc;
+  color: rgba(5,217,189,1);
 }
 
 .text-right {
