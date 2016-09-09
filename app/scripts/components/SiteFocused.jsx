@@ -9,18 +9,18 @@ let SiteFocused = ( props )=> {
     })
   }
   return (
-    <div className='container'>
-      <div className="panel-animate-top">
-        <SiteHeader
-          site={props.site}
-          showingMap={false}
-          onToggleView={props.onToggleView}
-          onClickClose={props.onClickClose}
-        />
+    <div>
+      <SiteHeader
+        site={props.site}
+        showingMap={false}
+        onToggleView={props.onToggleView}
+        onClickClose={props.onClickClose}
+      />
+      <div className='container'>
+        <h4> { props.site.name_en } </h4>
+        <p> {props.site.short_description_en}</p>
+        { images }
       </div>
-      <h4> { props.site.name_en } </h4>
-      <p> {props.site.short_description_en}</p>
-      { images }
     </div>
   )
 }
