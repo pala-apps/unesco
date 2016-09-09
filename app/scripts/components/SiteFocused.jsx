@@ -10,11 +10,13 @@ let SiteFocused = ( props )=> {
   }
   return (
     <div className='container'>
-      <SiteHeader
-        site={props.site}
-        showMap={false}
-        onToggleMap={props.onToggleMap}
-      />
+      <div className="panel-animate-top">
+        <SiteHeader
+          site={props.site}
+          showingDetails={true}
+          onClick={props.onToggleMap}
+        />
+      </div>
       <h4> { props.site.name_en } </h4>
       <a onClick={ props.onReturnClick }> Back </a>
       <p> {props.site.short_description_en}</p>
