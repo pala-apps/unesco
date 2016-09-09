@@ -31,7 +31,7 @@ Logo/Brand
 }
 
 .app-content .container {
-  height: 90%;
+  height: calc(100% - 72px);
   overflow-y: scroll;
 }
 
@@ -815,12 +815,14 @@ footer {
 /* navbar */
 .navbar {
   position: fixed;
-  height: 10%;
+  bottom: 0;
+  height: 56px;
   width: 100%;
 }
 
 .navbar-header {
-  line-height: 40px;
+  padding-left: 15px;
+  line-height: 56px;
   float:left;
 }
 
@@ -850,6 +852,7 @@ footer {
 
 .navbar-right {
   float: right !important;
+  padding: 8px 15px;
 }
 
 .navbar-collapse {
@@ -1089,9 +1092,6 @@ footer {
   height:36px;
   width: 60px;
   background-color: #ffffff;
-}
-
-.btn-toggle-left {
   border-radius: 20px;
 }
 
@@ -1106,33 +1106,8 @@ footer {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#05d9bd', endColorstr='#02f885', GradientType=1 );
 }
 
-.btn-toggle-right {
-  border-radius: 0 20px 20px 0;
-}
-
-@keyframe slide-left {
-  0% {
-    background: rgba(5,217,189,1);
-    background: -moz-linear-gradient(left, rgba(5,217,189,1) 0%, rgba(2,248,133,1) 100%);
-    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(5,217,189,1)), color-stop(100%, rgba(2,248,133,1)));
-    background: -webkit-linear-gradient(left, rgba(5,217,189,1) 0%, rgba(2,248,133,1) 100%);
-    background: -o-linear-gradient(left, rgba(5,217,189,1) 0%, rgba(2,248,133,1) 100%);
-    background: -ms-linear-gradient(left, rgba(5,217,189,1) 0%, rgba(2,248,133,1) 100%);
-    background: linear-gradient(to right, rgba(5,217,189,1) 0%, rgba(2,248,133,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#05d9bd', endColorstr='#02f885', GradientType=1 );
-  }
-  100% {
-    left: 20px;
-    background: rgba(5,217,189,1);
-    background: -moz-linear-gradient(left, rgba(5,217,189,1) 0%, rgba(2,248,133,1) 100%);
-    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(5,217,189,1)), color-stop(100%, rgba(2,248,133,1)));
-    background: -webkit-linear-gradient(left, rgba(5,217,189,1) 0%, rgba(2,248,133,1) 100%);
-    background: -o-linear-gradient(left, rgba(5,217,189,1) 0%, rgba(2,248,133,1) 100%);
-    background: -ms-linear-gradient(left, rgba(5,217,189,1) 0%, rgba(2,248,133,1) 100%);
-    background: linear-gradient(to right, rgba(5,217,189,1) 0%, rgba(2,248,133,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#05d9bd', endColorstr='#02f885', GradientType=1 );
-
-  }
+.btn-background i {
+  color: #ffffff;
 }
 
 /* blogs */

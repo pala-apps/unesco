@@ -87,6 +87,7 @@ const AppContainer = ( props ) => {
     <div className="app-content">
       { mainDisplay }
       <Nav
+        showMap={ props.showMap }
         isFocused={!!props.focusedSiteId}
         onClickList={displayList}
         onClickMap={displayMap}
