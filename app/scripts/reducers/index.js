@@ -4,9 +4,15 @@ const initState = {
   sites: []
 }
 
+function addDistance( sites, userLocation ) {
+  return sites.map( (site) =>  {
+    return Object.assign({}, site, { distance: calculateDistance( userLocation, site ) })
+  })
+}
+
 function sortSites(sites, userLocation){
   const sortedSites = R.sort((siteA, siteB)=>{
-    return calculateDistance(userLocation, siteA) - calculateDistance(userLocation, siteB)
+    return siteA.distance - siteB.distance
   }, sites)
   return sortedSites
 }
@@ -45,7 +51,9 @@ export default (state = initState, action) => {
         if(!state.sites){
           return Object.assign( {}, state, {userLocation: action.location})
         }
-        const sortedSites = sortSites(state.sites, action.location)
+        const sitesWithDistance = addDistance( state.sites, action.location );
+
+        const sortedSites = sortSites(sitesWithDistance)
         return Object.assign( {}, state, {userLocation: action.location, sites: sortedSites})
       case "TOGGLE_MAP":
         return Object.assign( {}, state, {showMap: action.show})
