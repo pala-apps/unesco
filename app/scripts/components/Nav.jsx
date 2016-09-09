@@ -4,7 +4,7 @@ let Nav = (props) => {
   let buttons = null;
   if(props.isFocused){
     buttons = <div>
-      <button onClick={props.onClickBack}> Back </button>
+      <button onClick={props.onClickBack}> All Sites </button>
     </div>
   }else{
     buttons = <div>

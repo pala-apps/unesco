@@ -16,7 +16,7 @@ let SiteFocused = ( props )=> {
         onToggleMap={props.onToggleMap}
       />
       <h4> { props.site.name_en } </h4>
-      <a onClick={ props.onReturnClick }> back </a>
+      <a onClick={ props.onReturnClick }> Back </a>
       <p> {props.site.short_description_en}</p>
       { images }
     </div>
