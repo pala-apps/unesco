@@ -10,8 +10,14 @@ let Nav = (props) => {
         </a>
       </div>
       <div className="navbar-right">
-        <button onClick={props.onClickList}> ListView </button>
-        <button onClick={props.onClickMap}> MapView </button>
+        <div className="btn-toggle">
+          <button className="btn btn-toggle-left" onClick={props.onClickList}>
+            <i className="fa fa-list-ul" aria-hidden="true"></i>
+          </button>
+          <button className="btn btn-toggle-right" onClick={props.onClickMap}>
+            <i className="fa fa-map-marker" aria-hidden="true"></i>
+          </button>
+        </div>
       </div>
     </nav>
   )
