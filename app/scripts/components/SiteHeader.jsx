@@ -41,12 +41,12 @@ function SiteHeader( {site, onClickClose, showingDetails, onToggleView, showingM
           <div className="media">
             <div className="media-body">
               <div className="row">
-                <div className="col-md-9 col-xs-9">
+                <div className="col-xs-9">
                   <h3 className="media-heading"> { site.name_en } </h3>
                   <div className="text-muted text-small">{ distanceText }</div>
                   <small className="text-blue">{ site.states_name_en }</small>
                 </div>
-                <div className="col-md-3 col-xs-3">
+                <div className="col-xs-3">
                   <div className="icon-round">
                     <i className={"fa fa-"+categeoryToIconName[site.category_short]}></i>
                   </div>
