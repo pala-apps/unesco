@@ -9,7 +9,7 @@ let SiteFocused = ( props )=> {
     })
   }
   return (
-    <div>
+    <div className='container'>
       <SiteHeader
         site={props.site}
         showMap={false}

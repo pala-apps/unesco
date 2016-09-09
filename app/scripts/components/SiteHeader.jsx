@@ -1,6 +1,10 @@
 import React from 'react'
 
-function SiteHeader( {site, onToggleMap} ){
+function SiteHeader( {site, onToggleMap, showMap} ){
+  let mapButtonText = "See on map"
+  if( showMap ){
+    mapButtonText = "Show info"
+  }
   return(
     <div key={site.unique_number} className="panel-animate-top">
       <div className="media">
@@ -12,7 +16,7 @@ function SiteHeader( {site, onToggleMap} ){
             <li>Category: { site.category }</li>
             <li>Hectares: { site.area_hectares }</li>
           </ul>
-          <button onClick={onToggleMap}> Toggle Map </button>
+          <button onClick={onToggleMap}> {mapButtonText} </button>
         </div>
       </div>
     </div>
