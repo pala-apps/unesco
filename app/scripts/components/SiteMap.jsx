@@ -2,9 +2,10 @@
 import React from 'react'
 // import MapGL from 'react-map-gl';
 import GoogleMap from 'google-map-react';
-import SiteMarker from './SiteMarker.jsx'
-import UserMarker from './UserMarker.jsx'
-import Animation from 'react-addons-css-transition-group'
+import SiteMarker from './SiteMarker.jsx';
+import UserMarker from './UserMarker.jsx';
+import SiteHeader from './SiteHeader.jsx';
+import Animation from 'react-addons-css-transition-group';
 
 const createMapOptions = (maps)=>{
     return {
@@ -30,20 +31,11 @@ const SiteMap = ( props )=>{
   let siteInfo = null
   let center = {lat: props.userCenter.latitude, lng: props.userCenter.longitude}
   if(props.focusedSite){
-    const site = props.focusedSite
-    siteInfo = <div key={site.unique_number} className="panel-animate-top">
-                <div className="media">
-                  <div className="media-body">
-                    <h3 className="media-heading"> { site.name_en } </h3>
-                    <small>{ site.states_name_en }</small>
-                    <ul>
-                      <li>Date Inscribed: { site.date_inscribed }</li>
-                      <li>Category: { site.category }</li>
-                      <li>Hectares: { site.area_hectares }</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+    siteInfo = <SiteHeader
+      site={props.focusedSite}
+      showMap={true}
+      onToggleMap={props.onToggleMap}
+    />
     center = {lat: props.focusedSite.latitude, lng: props.focusedSite.longitude}
   }
 

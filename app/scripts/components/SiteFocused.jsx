@@ -1,4 +1,5 @@
 import React from 'react';
+import SiteHeader from './SiteHeader.jsx'
 
 let SiteFocused = ( props )=> {
   let images = null
@@ -9,6 +10,11 @@ let SiteFocused = ( props )=> {
   }
   return (
     <div>
+      <SiteHeader
+        site={props.site}
+        showMap={false}
+        onToggleMap={props.onToggleMap}
+      />
       <h4> { props.site.name_en } </h4>
       <a onClick={ props.onReturnClick }> back </a>
       <p> {props.site.short_description_en}</p>

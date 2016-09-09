@@ -66,11 +66,16 @@ const AppContainer = ( props ) => {
       userCenter={ props.userLocation }
       focusedSite={ getFocusedSite(props.sites, props.focusedSiteId) }
       onMarkerClick={ focusOnSite }
+      onToggleMap={ displayList }
     />
   }
   else{
     if(props.focusedSiteId){
-      mainDisplay = <SiteFocused site={ getFocusedSite(props.sites, props.focusedSiteId) } onReturnClick={ removeFocus } />
+      mainDisplay = <SiteFocused
+        site={ getFocusedSite(props.sites, props.focusedSiteId) }
+        onReturnClick={ removeFocus }
+        onToggleMap={ displayMap }
+      />
     }else{
       const displaySites = props.sites.slice(0,100)
       mainDisplay = <SiteList sites={ displaySites } onPanelClick={ focusOnSite } />
