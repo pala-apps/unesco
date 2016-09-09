@@ -10,7 +10,6 @@ let SiteList = ( props ) => {
       <div key={site.unique_number} onClick={ () => { props.onPanelClick( site ) } }>
         <SiteHeader
           site={ site }
-          onClick={ ()=>{ props.onPanelClick(site)} }
           showingDetails={false} />
       </div>
     )

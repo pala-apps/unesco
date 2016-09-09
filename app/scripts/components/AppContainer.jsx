@@ -66,7 +66,7 @@ const AppContainer = ( props ) => {
       userCenter={ props.userLocation }
       focusedSite={ getFocusedSite(props.sites, props.focusedSiteId) }
       onMarkerClick={ focusOnSite }
-      onToggleMap={ displayList }
+      onClickClose={ removeFocus }
     />
   }
   else{
@@ -74,7 +74,7 @@ const AppContainer = ( props ) => {
       mainDisplay = <SiteFocused
         site={ getFocusedSite(props.sites, props.focusedSiteId) }
         onReturnClick={ removeFocus }
-        onToggleMap={ displayMap }
+        onClickClose={ removeFocus }
       />
     }else{
       const displaySites = props.sites.slice(0,100)
@@ -88,10 +88,8 @@ const AppContainer = ( props ) => {
       { mainDisplay }
       <Nav
         showMap={ props.showMap }
-        isFocused={!!props.focusedSiteId}
         onClickList={displayList}
         onClickMap={displayMap}
-        onClickBack={removeFocus}
       />
     </div>
   )

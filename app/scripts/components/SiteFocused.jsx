@@ -14,7 +14,7 @@ let SiteFocused = ( props )=> {
         <SiteHeader
           site={props.site}
           showingDetails={true}
-          onClick={props.onToggleMap}
+          onClickClose={props.onClickClose}
         />
       </div>
       <h4> { props.site.name_en } </h4>

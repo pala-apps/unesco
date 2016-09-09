@@ -31,7 +31,7 @@ const SiteMap = ( props )=>{
       <SiteHeader
         site={props.focusedSite}
         showingDetails={false}
-        onClick={props.onToggleMap}
+        onClickClose={props.onClickClose}
       />
       </div>
     )

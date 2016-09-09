@@ -1,9 +1,9 @@
 import React from 'react'
 
-function SiteHeader( {site, onClick, showingDetails} ){
-  let mapButtonText = "More info"
-  if( showingDetails ){
-    mapButtonText = "See on map"
+function SiteHeader( {site, onClickClose, showingDetails} ){
+  let closeButton = null
+  if(onClickClose){
+    closeButton = <button onClick={onClickClose}> Close X </button>
   }
   return(
     <div className="panel panel-default">
@@ -14,7 +14,7 @@ function SiteHeader( {site, onClick, showingDetails} ){
               <h3 className="media-heading"> { site.name_en } </h3>
               <small>{ site.states_name_en }</small>
               <div className="">
-              <button onClick={onClick}> {mapButtonText} </button>
+                { closeButton }
               </div>
             </div>
           </div>
