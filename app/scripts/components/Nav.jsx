@@ -26,7 +26,6 @@ let Nav = (props) => {
     </div>
   }
 
-
   return(
     <nav className="navbar navbar-default">
       <div className="navbar-header">

@@ -26,11 +26,15 @@ const SiteMap = ( props )=>{
   let siteInfo = null
   let center = {lat: props.userCenter.latitude, lng: props.userCenter.longitude}
   if(props.focusedSite){
-    siteInfo = <SiteHeader
-      site={props.focusedSite}
-      showMap={true}
-      onToggleMap={props.onToggleMap}
-    />
+    siteInfo = (
+      <div className="panel-animate-top">
+      <SiteHeader
+        site={props.focusedSite}
+        showingDetails={false}
+        onClick={props.onToggleMap}
+      />
+      </div>
+    )
     center = {lat: props.focusedSite.latitude, lng: props.focusedSite.longitude}
   }
 
