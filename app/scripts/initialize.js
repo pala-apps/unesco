@@ -17,20 +17,13 @@ render(
   document.getElementById('app')
 );
 
-console.log( 'updates' )
-
 function getLocation() {
   navigator.geolocation.getCurrentPosition( locationSuccess )
 }
 
 function locationSuccess( location ) {
-  console.log('got location', location)
   store.dispatch( actions.setUserLocation( {latitude:location.coords.latitude, longitude:location.coords.longitude } ) )
 }
-
-// function calcDistances( lat, lng ) {
-//   const sites = store.getState( 'sites' )
-// }
 
 let request = new XMLHttpRequest();
 request.open("GET", "data/sites.json")
