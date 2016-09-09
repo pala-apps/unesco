@@ -1,6 +1,18 @@
 import React from 'react'
 
 let Nav = (props) => {
+  let buttons = null;
+  if(props.isFocused){
+    buttons = <div>
+      <button onClick={props.onClickBack}> Back </button>
+    </div>
+  }else{
+    buttons = <div>
+      <button onClick={props.onClickList}> ListView </button>
+      <button onClick={props.onClickMap}> MapView </button>
+    </div>
+  }
+
 
   return(
     <nav className="navbar navbar-default">
@@ -10,8 +22,7 @@ let Nav = (props) => {
         </a>
       </div>
       <div className="navbar-right">
-        <button onClick={props.onClickList}> ListView </button>
-        <button onClick={props.onClickMap}> MapView </button>
+        {buttons}
       </div>
     </nav>
   )

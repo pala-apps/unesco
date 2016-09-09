@@ -60,7 +60,6 @@ const AppContainer = ( props ) => {
 
   let mainDisplay = null
 
-
   if(props.showMap){
     mainDisplay = <SiteMap
       sites={ props.sites }
@@ -82,7 +81,12 @@ const AppContainer = ( props ) => {
   return(
     <div className="app-content">
       { mainDisplay }
-      <Nav onClickList={displayList} onClickMap={displayMap}/>
+      <Nav
+        isFocused={!!props.focusedSiteId}
+        onClickList={displayList}
+        onClickMap={displayMap}
+        onClickBack={removeFocus}
+      />
     </div>
   )
 }
