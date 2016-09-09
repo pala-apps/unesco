@@ -28,7 +28,7 @@ function locationSuccess( location ) {
 let request = new XMLHttpRequest();
 request.open("GET", "data/sites.json")
 request.onload = function(){
-  const sites = JSON.parse( request.responseText );
+  const sites = JSON.parse( request.responseText ).slice(0, 100);
   store.dispatch( actions.addSites( sites ) )
   getLocation()
 }
