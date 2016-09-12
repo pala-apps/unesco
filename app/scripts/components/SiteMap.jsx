@@ -41,6 +41,9 @@ const SiteMap = ( props )=>{
   return(
       <div style= {{width:'100%'}}>
         <GoogleMap
+        bootstrapURLKeys={{
+          key: "AIzaSyDGZ1kk00sBmLijYR0pArzDkW4ybT09GA0"
+        }}
          options= { createMapOptions }
          center={ center }
          zoom={5}>
