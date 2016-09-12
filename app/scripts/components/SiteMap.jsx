@@ -1,4 +1,3 @@
-
 import React from 'react'
 import GoogleMap from 'google-map-react';
 import SiteMarker from './SiteMarker.jsx';
@@ -40,7 +39,7 @@ const SiteMap = ( props )=>{
   }
 
   return(
-      <div style= {{width:'100%', height:'90%'}}>
+      <div style= {{width:'100%'}}>
         <GoogleMap
          options= { createMapOptions }
          center={ center }
