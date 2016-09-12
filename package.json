@@ -10,7 +10,7 @@
   "scripts": {
     "start": "brunch watch --server",
     "prod": "brunch build --production",
-    "postinstall": "brunch build --production",
+    "postinstall": "brunch build --p",
     "test": "jest"
   },
   "dependencies": {
