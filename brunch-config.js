@@ -24,7 +24,14 @@ module.exports = {
           'sw/sw-toolbox-config.js'
         ]
       }
-
+    },
+    gzip:{
+      paths:{
+        javascript: 'scripts',
+        stylesheet: 'styles'
+      },
+      removeOriginalFiles: false,
+      renameGzipFilesToOriginalFiles: false
     }
   }
 };
