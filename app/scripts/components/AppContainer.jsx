@@ -87,7 +87,7 @@ const AppContainer = ( props ) => {
         onClickClose={ removeFocus }
       />
     }else{
-      const displaySites = props.sites.slice(0,100)
+      const displaySites = props.sites
       mainDisplay = <SiteList sites={ displaySites } onPanelClick={ focusOnSite } />
     }
 
