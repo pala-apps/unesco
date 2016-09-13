@@ -66,10 +66,30 @@ const AppContainer = ( props ) => {
     })
   }
 
+  const filterSites = ( category ) => {
+    props.dispatch( actions.filterSites( category ))
+  }
+
+  const displaySitesBy = ( category ) => {
+    return props.sites.slice(0,100).filter( ( site ) => {
+      if ( site.category_short === category ) {
+        return site
+      }
+    })
+  }
+
+  const getSites = () => {
+    const filter = props.filter
+    if ( filter ) {
+      console.log( filter )
+      return displaySitesBy( filter )
+    }
+    return props.sites.slice(0,100)
+  }
+
   let mainDisplay = null
 
   if(props.showMap){
-    console.log( props, 'map props' )
     mainDisplay = <SiteMap
       sites={ props.sites }
       userCenter={ props.userLocation }
@@ -87,8 +107,10 @@ const AppContainer = ( props ) => {
         onClickClose={ removeFocus }
       />
     }else{
-      const displaySites = props.sites
-      mainDisplay = <SiteList sites={ displaySites } onPanelClick={ focusOnSite } />
+      mainDisplay = <SiteList
+      sites={ getSites() }
+      onPanelClick={ focusOnSite }
+      filterSites={ filterSites } />
     }
 
   }
