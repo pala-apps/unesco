@@ -18,18 +18,28 @@ render(
 );
 
 function getLocation() {
+  locationFromCache();
   navigator.geolocation.getCurrentPosition( locationSuccess )
 }
 
 function locationSuccess( location ) {
-  store.dispatch( actions.setUserLocation( {latitude:location.coords.latitude, longitude:location.coords.longitude } ) )
+  const userPosition = {latitude:location.coords.latitude, longitude:location.coords.longitude }
+  store.dispatch( actions.setUserLocation( userPosition ) )
+  localStorage.setItem( 'userPosition', JSON.stringify( userPosition ))
+}
+
+function locationFromCache() {
+  const lastUserPosition = localStorage.getItem( 'userPosition' );
+  if (lastUserPosition) {
+    store.dispatch( actions.setUserLocation( JSON.parse( lastUserPosition ) ) )
+  }
 }
 
 let request = new XMLHttpRequest();
 request.open("GET", "data/sites.json")
 request.onload = function(){
   const sites = JSON.parse( request.responseText );
-  store.dispatch( actions.addSites( sites ) )
+  store.dispatch( actions.addSites( sites ) );
   getLocation()
 }
 request.send();
