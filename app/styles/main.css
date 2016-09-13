@@ -10,14 +10,9 @@ Medias
 Sidebars
 Logo/Brand
 */
-/*@import 'https://fonts.googleapis.com/css?family=Open+Sans';*/
 @import 'https://fonts.googleapis.com/css?family=Libre+Franklin:100,300,400,800';
 
 /* BASE STYLES */
-
-body, html {
-  height: 100%;
-}
 
 body {
   margin: 0px;
@@ -61,55 +56,16 @@ footer {
   width: 100%;
 }
 
-#app {
-  height: 100%;
-}
-
 .app-content {
-  height:100%;
-}
-
-.app-content > div {
-  height: calc(100% - 57px);
-  overflow-y: scroll;
 }
 
 .container {
   padding-top: 15px;
   padding-right: 15px;
   padding-left: 15px;
+  padding-bottom: 57px;
   margin-right: auto;
   margin-left: auto;
-}
-
-/* flex system */
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.col-md-3,
-.col-md-4,
-.col-md-8,
-.col-sm-4,
-.col-sm-6 {
-  /*display: flex;*/
-  padding: 0.5em;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-@media (min-width: 768px) {
-  .col-md-3 {
-    width: 25%;
-  },
-  .col-sm-6 {
-    width: 50%;
-  },
-  .col-sm-4 {
-    width: 33.33%
-  }
 }
 
 /* grid system */
