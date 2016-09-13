@@ -1,5 +1,7 @@
 import React from 'react'
+import R from 'react-virtualized';
 import SiteHeader from './SiteHeader'
+import { AutoSizer, VirtualScroll } from 'react-virtualized';
 
 
 
@@ -16,7 +18,15 @@ let SiteList = ( props ) => {
 
   return (
     <div className="container">
-      { panels }
+      <VirtualScroll
+        width={100}
+        height={800}
+        rowHeight={150}
+        rowCount={panels.length}
+        rowRenderer={
+          ({ index }) => panels[index] // Could also be a DOM element
+        }
+      />
     </div>
   )
 
