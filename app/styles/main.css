@@ -14,6 +14,23 @@ Logo/Brand
 
 /* BASE STYLES */
 
+html, body {
+  height: 100%;
+}
+
+#app {
+  height: 100%;
+}
+
+.app-content .map {
+  width: 100%;
+  height: calc(100% - 57px);
+}
+
+.app-content {
+  height: 100%;
+}
+
 body {
   margin: 0px;
   font-family: 'Libre Franklin', sans-serif;

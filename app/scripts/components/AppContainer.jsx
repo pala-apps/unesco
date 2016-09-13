@@ -7,8 +7,6 @@ import SiteMap from './SiteMap'
 
 import actions from '../actions/actions'
 
-
-
 const AppContainer = ( props ) => {
 
   const removeFocusDisplayMap =()=>{
@@ -71,6 +69,7 @@ const AppContainer = ( props ) => {
   let mainDisplay = null
 
   if(props.showMap){
+    console.log( props, 'map props' )
     mainDisplay = <SiteMap
       sites={ props.sites }
       userCenter={ props.userLocation }
