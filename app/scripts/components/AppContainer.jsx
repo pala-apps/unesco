@@ -73,7 +73,7 @@ const AppContainer = ( props ) => {
   }
 
   const displaySitesBy = ( category ) => {
-    return props.sites.slice(0,100).filter( ( site ) => {
+    return props.sites.filter( ( site ) => {
       if ( site.category_short === category ) {
         return site
       }
@@ -86,7 +86,7 @@ const AppContainer = ( props ) => {
       console.log( filter )
       return displaySitesBy( filter )
     }
-    return props.sites.slice(0,100)
+    return props.sites
   }
 
   let mainDisplay = null
