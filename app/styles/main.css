@@ -1039,10 +1039,12 @@ footer {
 
 .btn {
   padding: 6px 10px;
+  margin: 0px;
   border: 1px solid transparent;
   text-align: center;
   text-transform: uppercase;
   outline: none;
+  cursor: pointer;
 }
 
 .btn i {
@@ -1122,7 +1124,7 @@ footer {
 }
 
 .btn-split:last-child {
-  border-right: 1px solid rgba(5,217,189,1);
+  border-left: 1px solid rgba(5,217,189,1);
 }
 
 .btn-group .btn-split {
