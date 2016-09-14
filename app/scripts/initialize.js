@@ -36,7 +36,7 @@ function locationFromCache() {
 }
 
 let request = new XMLHttpRequest();
-request.open("GET", "data/sites2.json")
+request.open("GET", "data/sites.json")
 request.onload = function(){
   const sites = JSON.parse( request.responseText );
   store.dispatch( actions.addSites( sites ) );
