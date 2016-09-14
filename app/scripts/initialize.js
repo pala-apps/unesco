@@ -35,24 +35,6 @@ function locationFromCache() {
   }
 }
 
-// function jsonSlim(sites) {
-//   const newSites = sites.map( function( site ) {
-//     return {
-//       "category": site["category"],
-//       "category_short": site["category_short"],
-//       "date_inscribed": site["date_inscribed"],
-//       "id_no": site["id_no"],
-//       "unique_number": site["unique_number"],
-//       "iso_code": site["iso_code"],
-//       "latitude": site["latitude"],
-//       "longitude": site["longitude"],
-//       "name_en": site["name_en"],
-//       "region_name_en": site["region_name_en"],
-//       "short_description_en": site["short_description_en"]
-//     }
-//   })
-// }
-
 let request = new XMLHttpRequest();
 request.open("GET", "data/sites2.json")
 request.onload = function(){
