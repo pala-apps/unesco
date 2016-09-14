@@ -6,9 +6,11 @@ import { AutoSizer, VirtualScroll } from 'react-virtualized';
 
 let SiteList = ( props ) => {
   const panels = props.sites.map( (site) => {
+    const large = site.name_en > 50
     return (
-      <div key={site.unique_number} onClick={ () => { props.onPanelClick( site ) } }>
+      <div style={{"height":"100%"}} key={site.unique_number} onClick={ () => { props.onPanelClick( site ) } }>
         <SiteHeader
+          large={ large }
           site={ site }
         />
       </div>
@@ -21,7 +23,7 @@ let SiteList = ( props ) => {
       <VirtualScroll
         width={100}
         height={800}
-        rowHeight={150}
+        rowHeight={165}
         rowCount={panels.length}
         rowRenderer={
           ({ index }) => panels[index] // Could also be a DOM element
