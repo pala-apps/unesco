@@ -5,8 +5,6 @@ import SiteList from './SiteList'
 import SiteFocused from './SiteFocused'
 import SiteMap from './SiteMap'
 
-
-
 import actions from '../actions/actions'
 
 const AppContainer = ( props ) => {
@@ -110,6 +108,7 @@ const AppContainer = ( props ) => {
       />
     }else{
       mainDisplay = <SiteList
+      filter={props.filter}
       sites={ getSites() }
       onPanelClick={ focusOnSite }
       filterSites={ filterSites } />

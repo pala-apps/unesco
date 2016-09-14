@@ -8,7 +8,7 @@ let SiteList = ( props ) => {
   const panels = props.sites.map( (site) => {
     const large = site.name_en > 50
     return (
-      <div style={{"height":"100%"}} key={site.unique_number} onClick={ () => { props.onPanelClick( site ) } }>
+      <div className="full-height" key={site.unique_number} onClick={ () => { props.onPanelClick( site ) } }>
         <SiteHeader
           large={ large }
           site={ site }
@@ -19,7 +19,7 @@ let SiteList = ( props ) => {
 
   return (
     <div className="container">
-      <SiteFilter filterSites={ props.filterSites } />
+      <SiteFilter filter={props.filter} filterSites={ props.filterSites } />
       <VirtualScroll
         width={100}
         height={800}

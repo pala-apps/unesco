@@ -58,6 +58,10 @@ a {
   text-decoration: none;
 }
 
+div {
+  box-sizing: border-box;
+}
+
 hr {
   border: 0;
   height: 1px;
@@ -938,19 +942,13 @@ footer {
 }
 
 .panel {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   width: 100%;
 }
 
-div {
-  box-sizing: border-box;
-}
-
 .panel-default {
-  border-bottom: 20px solid #f9f9f9;
-  height: 100%;
   background-color: white;
 }
 
@@ -991,6 +989,11 @@ div {
 }
 
 .panel-body-footer {
+}
+
+.Grid__cell > .full-height > .panel-default {
+  border-bottom: 20px solid #f9f9f9;
+  height: 100%;
 }
 
 /* tags */
@@ -1065,7 +1068,6 @@ div {
 .btn-default i,
 .btn-default span {
   font-size: 12px;
-  vertical-align: middle;
   color: #fff;
 }
 
@@ -1100,6 +1102,37 @@ div {
 
 .btn-background i {
   color: #ffffff;
+}
+
+.btn-group {
+  display: block;
+  display: flex;
+  border: 1px solid rgba(5,217,189,1);
+  margin-bottom: 15px;
+  border-radius: 3px;
+}
+
+.btn-split {
+  width: 33.33333%;
+  flex:1;
+}
+
+.btn-split:first-child {
+  border-right: 1px solid rgba(5,217,189,1);
+}
+
+.btn-split:last-child {
+  border-right: 1px solid rgba(5,217,189,1);
+}
+
+.btn-group .btn-split {
+  background-color: transparent;
+  color: rgba(5,217,189,1);
+}
+
+.btn-split-chosen {
+  background-color: rgba(5,217,189,1) !important;
+  color: #ffffff !important;
 }
 
 /* blogs */
@@ -1210,6 +1243,7 @@ small, .small {
   height:25px;
 }
 .marker-circle{
+  box-sizing: content-box;
   border: 6px solid #2f8877;
   background: transparent;
   width:4px;
@@ -1228,6 +1262,7 @@ small, .small {
 }
 
 .marker-circle-user{
+  box-sizing: content-box;
   border: 6px solid #5d9cec;
   background: white;
   width:4px;
@@ -1272,4 +1307,8 @@ small, .small {
 
 .go-right {
   float:right;
+}
+
+.full-height {
+  height: 100%;
 }
