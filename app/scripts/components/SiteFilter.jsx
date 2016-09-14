@@ -24,7 +24,7 @@ let SiteFilter = ( props ) => {
     <div className="btn-group">
       <button className={ classC } onClick={() => { props.filterSites( "C" ) }}>Cultural</button>
       <button className={ classAll } onClick={() => { props.filterSites( null ) }}>All</button>
-      <button className={ classN } onClick={() => { props.filterSites( "N" ) }}>Natual</button>
+      <button className={ classN } onClick={() => { props.filterSites( "N" ) }}>Natural</button>
     </div>
   )
 }
