@@ -1,24 +1,24 @@
 {
-  "name": "Dummy",
-  "short_name": "Dummy",
+  "name": "Unesco",
+  "short_name": "Unesco",
   "icons": [{
-    "src": "images/icon-128.png",
+    "src": "images/university_128.png",
       "sizes": "128x128",
       "type": "image/png"
     }, {
-      "src": "images/icon-144.png",
+      "src": "images/university_144.png",
       "sizes": "144x144",
       "type": "image/png"
     }, {
-      "src": "images/icon-152.png",
+      "src": "images/university_152.png",
       "sizes": "152x152",
       "type": "image/png"
     }, {
-      "src": "images/icon-192.png",
+      "src": "images/university_192.png",
       "sizes": "192x192",
       "type": "image/png"
     }, {
-      "src": "images/icon-256.png",
+      "src": "images/university_256.png",
       "sizes": "256x256",
       "type": "image/png"
     }],
