@@ -52,23 +52,18 @@ const AppContainer = ( props ) => {
   }
 
   const displayMap =()=>{
-    console.log("displaying map")
     props.dispatch( actions.toggleMap(true) )
   }
 
   const displayList=()=>{
-    console.log("displaying list")
     props.dispatch( actions.toggleMap(false) )
   }
 
   const getFocusedSite=(sites, id)=>{
-    console.log('sites', sites)
-    console.log('id', id)
     if(!id){return null}
     const site = sites.find((site)=>{
       return site.unique_number === Number(id)
     })
-    console.log("site", site)
     return site
   }
 
@@ -89,7 +84,6 @@ const AppContainer = ( props ) => {
 
   let mainDisplay = null
   if(props.view === "map"){
-  // if(props.showMap){
     mainDisplay = <SiteMap
       sites={ props.sites }
       userCenter={ props.userLocation }
@@ -100,8 +94,6 @@ const AppContainer = ( props ) => {
     />
   }
   else{
-    // if(props.focusedSiteId){
-    console.log("props", props)
     if(props.sites && props.sites.length > 0 && props.siteId){
       const site = getFocusedSite(props.sites, props.siteId)
       mainDisplay = <SiteFocused
@@ -131,7 +123,6 @@ const AppContainer = ( props ) => {
 }
 
 const mapStateToProps = (state, { params })=>{
-  console.log('ownProps filter', params)
   return Object.assign({},state, {
     filter: params.filter || "all",
     view: params.view || "list",
