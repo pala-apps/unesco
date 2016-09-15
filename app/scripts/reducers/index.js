@@ -43,8 +43,6 @@ function calculateDistance(userLocation, siteLocation){
 
 export default (state = initState, action) => {
     switch (action.type) {
-      case "FILTER_SITES":
-        return Object.assign({}, state, {filter: action.category})
       case "ADD_SITES":
         return Object.assign({}, state, {sites: action.sites})
       case "SET_FOCUSED_SITE":

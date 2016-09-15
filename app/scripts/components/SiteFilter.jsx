@@ -1,4 +1,5 @@
 import React from 'react'
+import FilterLink from './FilterLink'
 
 let SiteFilter = ( props ) => {
 
@@ -22,11 +23,15 @@ let SiteFilter = ( props ) => {
 
   return (
     <div className="btn-group">
-      <button className={ classC } onClick={() => { props.filterSites( "C" ) }}>Cultural</button>
-      <button className={ classAll } onClick={() => { props.filterSites( null ) }}>All</button>
-      <button className={ classN } onClick={() => { props.filterSites( "N" ) }}>Natural</button>
+      <FilterLink filter="cultural"> Cultural </FilterLink>
+      <FilterLink filter="all"> All </FilterLink>
+      <FilterLink filter="natural"> Natural </FilterLink>
     </div>
   )
 }
 
 export default SiteFilter
+
+{/*<button className={ classC } onClick={() => { props.filterSites( "C" ) }}>Cultural</button>
+<button className={ classAll } onClick={() => { props.filterSites( null ) }}>All</button>
+<button className={ classN } onClick={() => { props.filterSites( "N" ) }}>Natural</button>*/}

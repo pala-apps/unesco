@@ -66,25 +66,19 @@ const AppContainer = ( props ) => {
     })
   }
 
-  const filterSites = ( category ) => {
-    props.dispatch( actions.filterSites( category ))
-  }
-
   const displaySitesBy = ( category ) => {
     return props.sites.filter( ( site ) => {
-      if ( site.category_short === category ) {
+      if ( site.category.toLowerCase() === category ) {
         return site
       }
     })
   }
 
   const getSites = () => {
-    const filter = props.filter
-    if ( filter ) {
-      console.log( filter )
-      return displaySitesBy( filter )
+    if ( props.filter === 'all' ) {
+      return props.sites
     }
-    return props.sites
+    return displaySitesBy( props.filter )
   }
 
   let mainDisplay = null
@@ -108,10 +102,8 @@ const AppContainer = ( props ) => {
       />
     }else{
       mainDisplay = <SiteList
-      filter={props.filter}
       sites={ getSites() }
-      onPanelClick={ focusOnSite }
-      filterSites={ filterSites } />
+      onPanelClick={ focusOnSite } />
     }
 
   }
@@ -128,5 +120,9 @@ const AppContainer = ( props ) => {
   )
 }
 
+const mapStateToProps = (state, { params })=>{
+  console.log('ownProps filter', params)
+  return Object.assign({},state, {filter: params.filter || "all"})
+}
 
-export default connect( state => state )( AppContainer )
+export default connect( mapStateToProps )( AppContainer )

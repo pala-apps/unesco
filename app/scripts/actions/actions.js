@@ -1,10 +1,4 @@
 const actions = {
-  filterSites: function(category) {
-    return {
-      type: "FILTER_SITES",
-      category
-    }
-  },
   addSites: function(sites){
     return {
       type: "ADD_SITES",

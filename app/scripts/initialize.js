@@ -10,9 +10,12 @@ import { Provider } from 'react-redux';
 import actions from './actions/actions'
 let store = createStore(sitesReducer, window.devToolsExtension && window.devToolsExtension());
 
+import {Router, Route, browserHistory} from 'react-router';
 render(
   <Provider store={store}>
-    <AppContainer/>
+    <Router history={browserHistory}>
+      <Route path='/(:filter)' component={AppContainer}/>
+    </Router>
   </Provider>,
   document.getElementById('app')
 );
