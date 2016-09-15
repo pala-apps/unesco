@@ -22,9 +22,11 @@ const AppContainer = ( props ) => {
   const removeFocus = ()=>{
     props.dispatch( actions.setFocusedSite( null ) )
   }
-  const focusOnSite = ( site )=>{
+  const focusOnSite = (site)=>{
     props.dispatch( actions.setFocusedSite(site.unique_number) )
+  }
 
+  const addSiteImages = ( site )=>{
     let request = new XMLHttpRequest();
     const tagArray = site.name_en.split(" ")
     const restrictedWords = ["and", "or", "the", "of", "in"]
@@ -60,10 +62,14 @@ const AppContainer = ( props ) => {
   }
 
   const getFocusedSite=(sites, id)=>{
+    console.log('sites', sites)
+    console.log('id', id)
     if(!id){return null}
-    return sites.find((site)=>{
-      return site.unique_number === id
+    const site = sites.find((site)=>{
+      return site.unique_number === Number(id)
     })
+    console.log("site", site)
+    return site
   }
 
   const displaySitesBy = ( category ) => {
@@ -82,23 +88,27 @@ const AppContainer = ( props ) => {
   }
 
   let mainDisplay = null
-
-  if(props.showMap){
+  if(props.view === "map"){
+  // if(props.showMap){
     mainDisplay = <SiteMap
       sites={ props.sites }
       userCenter={ props.userLocation }
-      focusedSite={ getFocusedSite(props.sites, props.focusedSiteId) }
+      focusedSite={ getFocusedSite(props.sites, props.siteId) }
       onMarkerClick={ focusOnSite }
       onClickClose={ removeFocus }
       onToggleView={ displayList }
     />
   }
   else{
-    if(props.focusedSiteId){
+    // if(props.focusedSiteId){
+    console.log("props", props)
+    if(props.sites && props.sites.length > 0 && props.siteId){
+      const site = getFocusedSite(props.sites, props.siteId)
       mainDisplay = <SiteFocused
-        site={ getFocusedSite(props.sites, props.focusedSiteId) }
+        site={ site }
         onToggleView={ displayMap }
         onClickClose={ removeFocus }
+        beforeMount= { addSiteImages }
       />
     }else{
       mainDisplay = <SiteList
@@ -122,7 +132,11 @@ const AppContainer = ( props ) => {
 
 const mapStateToProps = (state, { params })=>{
   console.log('ownProps filter', params)
-  return Object.assign({},state, {filter: params.filter || "all"})
+  return Object.assign({},state, {
+    filter: params.filter || "all",
+    view: params.view || "list",
+    siteId: params.siteId || null,
+  })
 }
 
 export default connect( mapStateToProps )( AppContainer )

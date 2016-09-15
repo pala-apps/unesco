@@ -10,7 +10,7 @@ export default function init(){
 
   if ('serviceWorker' in navigator &&
       (window.location.protocol === 'https:' || isLocalhost)) {
-    navigator.serviceWorker.register('sw.js')
+    navigator.serviceWorker.register('/sw.js')
     .then(function(registration) {
       console.log('in service worker setup')
       // updatefound is fired if service-worker.js changes.

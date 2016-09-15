@@ -14,7 +14,7 @@ import {Router, Route, browserHistory} from 'react-router';
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path='/(:filter)' component={AppContainer}/>
+      <Route path='/(:view)(/:filter)(/:siteId)' component={AppContainer}/>
     </Router>
   </Provider>,
   document.getElementById('app')
@@ -39,7 +39,7 @@ function locationFromCache() {
 }
 
 let request = new XMLHttpRequest();
-request.open("GET", "data/sites.json")
+request.open("GET", "/data/sites.json")
 request.onload = function(){
   const sites = JSON.parse( request.responseText );
   store.dispatch( actions.addSites( sites ) );
