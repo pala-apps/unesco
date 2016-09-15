@@ -23,9 +23,9 @@ let SiteFilter = ( props ) => {
 
   return (
     <div className="btn-group">
-      <FilterLink filter="cultural"> Cultural </FilterLink>
-      <FilterLink filter="all"> All </FilterLink>
-      <FilterLink filter="natural"> Natural </FilterLink>
+      <FilterLink view={props.view} filter="cultural"> Cultural </FilterLink>
+      <FilterLink view={props.view} filter="all"> All </FilterLink>
+      <FilterLink view={props.view} filter="natural"> Natural </FilterLink>
     </div>
   )
 }

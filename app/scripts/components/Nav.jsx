@@ -1,4 +1,5 @@
 import React from 'react'
+import ViewLink from './ViewLink'
 
 let Nav = (props) => {
   let btnToggleClassLeft = "btn btn-toggle-left";
@@ -19,17 +20,20 @@ let Nav = (props) => {
       </div>
       <div className="navbar-right">
         <div className="btn-toggle">
-          <button className={btnToggleClassLeft} onClick={props.onClickList}>
-            <i className="fa fa-list-ul" aria-hidden="true"></i>
-          </button>
-          <button className={btnToggleClassRight} onClick={props.onClickMap}>
-            <i className="fa fa-map-marker" aria-hidden="true"></i>
-          </button>
+          <ViewLink view="/list"> <i className="fa fa-list-ul" aria-hidden="true"></i> </ViewLink>
+          <ViewLink view="/map"> <i className="fa fa-map-marker" aria-hidden="true"></i> </ViewLink>
         </div>
       </div>
     </nav>
   )
 
 }
+
+{/*<button className={btnToggleClassLeft} onClick={props.onClickList}>
+  <i className="fa fa-list-ul" aria-hidden="true"></i>
+</button>
+<button className={btnToggleClassRight} onClick={props.onClickMap}>
+  <i className="fa fa-map-marker" aria-hidden="true"></i>
+</button>*/}
 
 export default Nav

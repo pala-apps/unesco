@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-const FilterLink = ({ filter, children }) =>(
+const FilterLink = ({ filter, children, view }) =>(
   <Link
-    to={ filter }
+    to={ `/${view}/${filter}` }
     activeStyle={{
       color: 'red'
     }}

@@ -19,7 +19,7 @@ let SiteList = ( props ) => {
 
   return (
     <div className="container">
-      <SiteFilter filter={props.filter} filterSites={ props.filterSites } />
+      <SiteFilter filter={props.filter} filterSites={ props.filterSites } view={props.view} />
       <VirtualScroll
         width={100}
         height={800}

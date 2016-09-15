@@ -105,7 +105,9 @@ const AppContainer = ( props ) => {
     }else{
       mainDisplay = <SiteList
       sites={ getSites() }
-      onPanelClick={ focusOnSite } />
+      onPanelClick={ focusOnSite }
+      view={props.view}
+      />
     }
 
   }
