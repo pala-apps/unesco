@@ -2,19 +2,19 @@ import React from 'react'
 import SiteHeader from './SiteHeader'
 import SiteFilter from './SiteFilter'
 import { AutoSizer, VirtualScroll } from 'react-virtualized';
-import PanelLink from './PanelLink';
+import RouteLink from './RouteLink';
 
 let SiteList = ( props ) => {
   const panels = props.sites.map( (site) => {
     const large = site.name_en > 50
     return (
       <div className="full-height" key={site.unique_number}>
-        <PanelLink siteId={site.unique_number} view={props.view} >
+        <RouteLink path={ `/detail/site/${site.unique_number}` } siteId={site.unique_number} view={props.view} >
           <SiteHeader
             large={ large }
             site={ site }
           />
-        </PanelLink>
+        </RouteLink>
       </div>
     )
   })
@@ -25,7 +25,7 @@ let SiteList = ( props ) => {
       <VirtualScroll
         width={100}
         height={800}
-        rowHeight={165}
+        rowHeight={180}
         rowCount={panels.length}
         rowRenderer={
           ({ index }) => panels[index] // Could also be a DOM element

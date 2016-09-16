@@ -1,37 +1,15 @@
 import React from 'react'
-import FilterLink from './FilterLink'
+import RouteLink from './RouteLink'
 
 let SiteFilter = ( props ) => {
 
-  const filter = props.filter
-
-  let classN = "btn btn-split"
-  let classAll = "btn btn-split"
-  let classC = "btn btn-split"
-
-  if( !filter ) {
-    classAll += " btn-split-chosen"
-  }
-
-  if( filter === "N") {
-    classN += " btn-split-chosen"
-  }
-
-  if( filter === "C") {
-    classC += " btn-split-chosen"
-  }
-
   return (
     <div className="btn-group">
-      <FilterLink view={props.view} filter="cultural"> Cultural </FilterLink>
-      <FilterLink view={props.view} filter="all"> All </FilterLink>
-      <FilterLink view={props.view} filter="natural"> Natural </FilterLink>
+      <RouteLink path={ `/${props.view}/cultural` } classes="btn btn-split" activeClass="btn-split-chosen"> Cultural </RouteLink>
+      <RouteLink path={ `/${props.view}/all` } classes="btn btn-split" activeClass="btn-split-chosen"> All </RouteLink>
+      <RouteLink path={ `/${props.view}/natural` } classes="btn btn-split" activeClass="btn-split-chosen"> Natural </RouteLink>
     </div>
   )
 }
 
 export default SiteFilter
-
-{/*<button className={ classC } onClick={() => { props.filterSites( "C" ) }}>Cultural</button>
-<button className={ classAll } onClick={() => { props.filterSites( null ) }}>All</button>
-<button className={ classN } onClick={() => { props.filterSites( "N" ) }}>Natural</button>*/}

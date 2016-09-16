@@ -1,5 +1,5 @@
 import React from 'react'
-import ViewFocusLink from './ViewFocusLink'
+import RouteLink from './RouteLink'
 
 function SiteHeader( {site, showingDetails, onToggleView, showingMap} ){
   let distanceText = "Getting user location..."
@@ -10,26 +10,26 @@ function SiteHeader( {site, showingDetails, onToggleView, showingMap} ){
   let toggleButton = null
   if(onToggleView){
     if(showingMap){
-      toggleButton = <ViewFocusLink
+      toggleButton = <RouteLink
                         view="detail"
-                        siteId= { site.unique_number }
+                        path={ `/detail/site/${site.unique_number}` }
                       >
-                        <button className="btn btn-default btn-default-split">
+                        <button className="btn btn-default btn-block">
                             <i className="fa fa-info-circle"></i>
                             <span className="text-small text-muted"> Site info </span>
                         </button>
-                      </ViewFocusLink>
+                      </RouteLink>
     }else{
-      toggleButton = <ViewFocusLink
-                        className="btn btn-default btn-default-split"
+      toggleButton = <RouteLink
+                        className="btn btn-default btn-block"
                         view="map"
-                        siteId= { site.unique_number }
+                        path={ `/map/site/${site.unique_number}` }
                       >
-                        <button className="btn btn-default btn-default-split">
+                        <button className="btn btn-default btn-block">
                           <i className="fa fa-map-marker"></i>
                           <span className="text-small text-muted"> See on map </span>
                         </button>
-                     </ViewFocusLink>
+                     </RouteLink>
     }
   }
 
@@ -38,6 +38,8 @@ function SiteHeader( {site, showingDetails, onToggleView, showingMap} ){
     N: "leaf",
     "C/N": "globe"
   }
+
+  const countries = site.states_name_en.split(',').join(', ');
 
   return(
     <div className="panel panel-default">
@@ -49,7 +51,7 @@ function SiteHeader( {site, showingDetails, onToggleView, showingMap} ){
                 <div className="col-xs-9">
                   <h3 className="media-heading"> { site.name_en } </h3>
                   <div className="text-muted text-small">{ distanceText }</div>
-                  <small className="text-blue">{ site.states_name_en }</small>
+                  <small className="text-blue">{ countries }</small>
                 </div>
                 <div className="col-xs-3">
                   <div className="icon-round">
