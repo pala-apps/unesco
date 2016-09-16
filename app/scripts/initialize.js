@@ -14,12 +14,8 @@ import SiteList from './components/SiteList';
 import SiteMap from './components/SiteMap';
 import SiteFocused from './components/SiteFocused';
 
-
-
 let store = createStore(sitesReducer, window.devToolsExtension && window.devToolsExtension());
 
-
-{/*<Route path='/(:view)(/:filter)(/:siteId)' component={AppContainer}/>*/}
 render(
   <Provider store={store}>
     <Router history={browserHistory}>

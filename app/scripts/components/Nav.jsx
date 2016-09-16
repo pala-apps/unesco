@@ -2,7 +2,18 @@ import React from 'react'
 import RouteLink from './RouteLink'
 import { browserHistory } from 'react-router';
 
-let Nav = ({ hasSite }) => {
+let Nav = ({ hasSite, view }) => {
+
+  let listClasses = "btn btn-toggle-left "
+  let mapClasses = "btn btn-toggle-right "
+
+  if ( view === "list" ) {
+    listClasses += "btn-background"
+  }
+
+  if ( view === "map" ) {
+    mapClasses += "btn-background"
+  }
 
   let navHeader = <a href="/" className="brand">
                     UNESCO
@@ -23,10 +34,10 @@ let Nav = ({ hasSite }) => {
       </div>
       <div className="navbar-right">
         <div className="btn-toggle">
-          <RouteLink path="/list/all" classes="btn btn-toggle-left" activeClass="btn-background">
+          <RouteLink path="/list/all" classes={ listClasses } >
             <i className="fa fa-list-ul" aria-hidden="true"></i>
           </RouteLink>
-          <RouteLink path="/map" classes="btn btn-toggle-right" activeClass="btn-background">
+          <RouteLink path="/map" classes={ mapClasses } >
             <i className="fa fa-map-marker" aria-hidden="true"></i>
           </RouteLink>
         </div>

@@ -11,14 +11,16 @@ const AppContainer = ( props ) => {
       { props.children }
       <Nav
         hasSite={ !!props.siteId }
+        view={ props.view }
       />
     </div>
   )
 }
 
-const mapStateToProps = (state, {params})=>{
+const mapStateToProps = (state, {params, location})=>{
   return {
     siteId: params.siteId || null,
+    view: location.pathname.split('/')[1]
   }
 }
 
