@@ -1,30 +1,32 @@
 import React from 'react'
+import ViewFocusLink from './ViewFocusLink'
 
-function SiteHeader( {site, onClickClose, showingDetails, onToggleView, showingMap} ){
+function SiteHeader( {site, showingDetails, onToggleView, showingMap} ){
   let distanceText = "Getting user location..."
   if( site.distance ) {
     distanceText = `${ ( site.distance  / 1000 ).toFixed(2) } km away`
   }
 
-  let closeButton = null
-  if(onClickClose){
-    closeButton = <button className="btn btn-warning btn-default btn-default-split go-right" onClick={onClickClose}>
-                    <i className="fa fa-times-circle"></i>
-                    <span className="text-small text-muted"> Close</span>
-                  </button>
-  }
   let toggleButton = null
   if(onToggleView){
     if(showingMap){
-      toggleButton = <button className="btn btn-default btn-default-split" onClick={onToggleView}>
+      toggleButton = <ViewFocusLink
+                        className="btn btn-default btn-default-split"
+                        view="list"
+                        siteId= { site.unique_number }
+                      >
                         <i className="fa fa-info-circle"></i>
-                        <span className="text-small text-muted"> Site info</span>
-                      </button>
+                        <span className="text-small text-muted"> Site info </span>
+                      </ViewFocusLink>
     }else{
-      toggleButton = <button className="btn btn-default btn-default-split" onClick={onToggleView}>
+      toggleButton = <ViewFocusLink
+                        className="btn btn-default btn-default-split"
+                        view="map"
+                        siteId= { site.unique_number }
+                      >
                       <i className="fa fa-map-marker"></i>
-                      <span className="text-small text-muted"> See on map</span>
-                     </button>
+                      <span className="text-small text-muted"> See on map </span>
+                     </ViewFocusLink>
     }
   }
 
@@ -58,7 +60,6 @@ function SiteHeader( {site, onClickClose, showingDetails, onToggleView, showingM
           </div>
         </div>
         <div className="panel-body-footer">
-          { closeButton }
           { toggleButton }
         </div>
       </div>
@@ -67,3 +68,15 @@ function SiteHeader( {site, onClickClose, showingDetails, onToggleView, showingM
 }
 
 export default SiteHeader
+
+// if(showingMap){
+//   toggleButton = <button className="btn btn-default btn-default-split" onClick={onToggleView}>
+//                     <i className="fa fa-info-circle"></i>
+//                     <span className="text-small text-muted"> Site info </span>
+//                   </button>
+// }else{
+//   toggleButton = <button className="btn btn-default btn-default-split" onClick={onToggleView}>
+//                   <i className="fa fa-map-marker"></i>
+//                   <span className="text-small text-muted"> See on map </span>
+//                  </button>
+// }
