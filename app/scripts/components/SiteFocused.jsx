@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SiteHeader from './SiteHeader.jsx';
 import { connect } from 'react-redux';
 import actions from '../actions/actions';
+import { getFocusedSite } from '../focused_site_helpers/focused_site_helpers.js'
 
 let SiteFocused = (props)=>{
   if(!props.site){return null}
@@ -62,15 +63,6 @@ const addSiteImages = ( site, dispatch )=>{
 
   }
   request.send();
-}
-
-//TODO move into own module DRY UP
-const getFocusedSite=(sites, id)=>{
-  if(!id || !sites || sites.length === 0){return null}
-  const site = sites.find((site)=>{
-    return site.unique_number === Number(id)
-  })
-  return site
 }
 
 const mapStateToProps = (state, { params, route } )=>{
