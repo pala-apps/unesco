@@ -1,11 +1,14 @@
 import React, {PropTypes, Component} from 'react';
+import MapLink from './MapLink'
 
 const SiteMarker = (props)=>{
   return(
-    <div onClick={ () => { props.onMarkerClick( props.site ) } } className="marker">
-      <div className="marker-circle"></div>
-      <div className="marker-triangle"></div>
-    </div>
+    <MapLink siteId={props.site.unique_number}>
+      <div className="marker">
+        <div className="marker-circle"></div>
+        <div className="marker-triangle"></div>
+      </div>
+    </MapLink>
   )
 }
 
