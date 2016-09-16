@@ -2,45 +2,41 @@ import React, { Component } from 'react';
 import SiteHeader from './SiteHeader.jsx';
 import { connect } from 'react-redux';
 import actions from '../actions/actions';
+import { getFocusedSite } from '../focused_site_helpers/focused_site_helpers.js'
 
-class SiteFocused extends Component{
-  constructor(props){
-    super(props);
+let SiteFocused = (props)=>{
+  if(!props.site){return null}
+  if(!props.site.imageUrls){
+    addSiteImages( props.site, props.dispatch )
   }
-
-  render(){
-    if(!this.props.site){return null}
-    if(!this.props.site.imageUrls){
-      addSiteImages( this.props.site, this.props.dispatch )
-    }
-    let images = null
-    if( this.props.site.imageUrls ){
-      images = this.props.site.imageUrls.map((image,index)=>{
-        return <img className="img-responsive" key={image} src={image} ></img>
-      })
-    }
-    return (
-      <div>
-        <SiteHeader
-          site={this.props.site}
-          showingMap={false}
-          canToggle={true}
-        />
-        <div className='container'>
-          { images }
-          <div className="panel panel-default">
-            <div className="panel-body">
-              <div className="panel-body-content">
-                <h4 className="text-muted text-small">Description</h4>
-                <div dangerouslySetInnerHTML={{__html: this.props.site.short_description_en}}></div>
-              </div>
+  let images = null
+  if( props.site.imageUrls ){
+    images = props.site.imageUrls.map((image,index)=>{
+      return <img className="img-responsive" key={image} src={image} ></img>
+    })
+  }
+  return (
+    <div>
+      <SiteHeader
+        site={props.site}
+        showingMap={false}
+        canToggle={true}
+      />
+      <div className='container'>
+        { images }
+        <div className="panel panel-default">
+          <div className="panel-body">
+            <div className="panel-body-content">
+              <h4 className="text-muted text-small">Description</h4>
+              <div dangerouslySetInnerHTML={{__html: props.site.short_description_en}}></div>
             </div>
           </div>
         </div>
       </div>
-    )
-  }
+    </div>
+  )
 }
+
 
 const addSiteImages = ( site, dispatch )=>{
   if(!site){return null}
@@ -67,15 +63,6 @@ const addSiteImages = ( site, dispatch )=>{
 
   }
   request.send();
-}
-
-//TODO move into own module DRY UP
-const getFocusedSite=(sites, id)=>{
-  if(!id || !sites || sites.length === 0){return null}
-  const site = sites.find((site)=>{
-    return site.unique_number === Number(id)
-  })
-  return site
 }
 
 const mapStateToProps = (state, { params, route } )=>{

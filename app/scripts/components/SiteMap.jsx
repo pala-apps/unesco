@@ -5,6 +5,7 @@ import UserMarker from './UserMarker.jsx';
 import SiteHeader from './SiteHeader.jsx';
 import Animation from 'react-addons-css-transition-group';
 import { connect } from 'react-redux';
+import { getFocusedSite } from '../focused_site_helpers/focused_site_helpers.js'
 
 
 const createMapOptions = (maps)=>{
@@ -67,14 +68,6 @@ const SiteMap = ( props )=>{
 }
 
 SiteMap.defaultProps = { userCenter: {latitude:1, longitude:1} };
-
-const getFocusedSite=(sites, id)=>{
-  if(!id || !sites || sites.length === 0){return null}
-  const site = sites.find((site)=>{
-    return site.unique_number === Number(id)
-  })
-  return site
-}
 
 const mapStateToProps = (state, { params, route } )=>{
   return {
