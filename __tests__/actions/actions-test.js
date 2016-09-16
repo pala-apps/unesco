@@ -5,22 +5,7 @@ it('adds sites', () => {
   expect(actions.addSites([{name:"A Site"}])).toEqual( expectedAction  );
 });
 
-it('sets focusesed site', () => {
-  const expectedAction = { type:"SET_FOCUSED_SITE", siteId: 1 }
-  expect(actions.setFocusedSite(1)).toEqual( expectedAction  );
-});
-
 it( 'sets user location', () => {
   const expectedAction = { type:"SET_USER_LOCATION", location: { latitude: 1, longitude: 2 } };
   expect( actions.setUserLocation( { latitude: 1, longitude: 2 } )).toEqual( expectedAction );
-})
-
-it('focuses on map',()=>{
-  const expectedAction = { type:"TOGGLE_MAP", show: true };
-  expect( actions.toggleMap(true) ).toEqual( expectedAction );
-})
-
-it('removes focus on map',()=>{
-  const expectedAction = { type:"TOGGLE_MAP", show: false };
-  expect( actions.toggleMap(false) ).toEqual( expectedAction );
-})
+});

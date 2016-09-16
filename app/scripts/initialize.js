@@ -10,15 +10,24 @@ import { Provider } from 'react-redux';
 import actions from './actions/actions'
 import {Router, Route, browserHistory} from 'react-router';
 
+import SiteList from './components/SiteList';
+import SiteMap from './components/SiteMap';
+import SiteFocused from './components/SiteFocused';
+
+
 
 let store = createStore(sitesReducer, window.devToolsExtension && window.devToolsExtension());
 
 
-
+{/*<Route path='/(:view)(/:filter)(/:siteId)' component={AppContainer}/>*/}
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path='/(:view)(/:filter)(/:siteId)' component={AppContainer}/>
+      <Route path='/' component={AppContainer}>
+        <Route path='list(/:filter)' component={SiteList} view="list"/>
+        <Route path='map(/:filter)(/:siteId)' component={SiteMap} view="map"/>
+        <Route path='detail/site/:siteId' component={SiteFocused} view="detail"/>
+      </Route>
     </Router>
   </Provider>,
   document.getElementById('app')

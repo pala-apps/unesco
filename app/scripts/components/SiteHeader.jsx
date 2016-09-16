@@ -1,14 +1,14 @@
 import React from 'react'
 import RouteLink from './RouteLink'
 
-function SiteHeader( {site, showingDetails, onToggleView, showingMap} ){
+function SiteHeader( {site, showingDetails, canToggle, showingMap} ){
   let distanceText = "Getting user location..."
   if( site.distance ) {
     distanceText = `${ ( site.distance  / 1000 ).toFixed(2) } km away`
   }
 
   let toggleButton = null
-  if(onToggleView){
+  if(canToggle){
     if(showingMap){
       toggleButton = <RouteLink
                         view="detail"
@@ -73,15 +73,3 @@ function SiteHeader( {site, showingDetails, onToggleView, showingMap} ){
 }
 
 export default SiteHeader
-
-// if(showingMap){
-//   toggleButton = <button className="btn btn-default btn-default-split" onClick={onToggleView}>
-//                     <i className="fa fa-info-circle"></i>
-//                     <span className="text-small text-muted"> Site info </span>
-//                   </button>
-// }else{
-//   toggleButton = <button className="btn btn-default btn-default-split" onClick={onToggleView}>
-//                   <i className="fa fa-map-marker"></i>
-//                   <span className="text-small text-muted"> See on map </span>
-//                  </button>
-// }

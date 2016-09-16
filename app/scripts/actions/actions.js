@@ -5,22 +5,10 @@ const actions = {
       sites
     }
   },
-  setFocusedSite:function(siteId){
-    return{
-      type: "SET_FOCUSED_SITE",
-      siteId
-    }
-  },
   setUserLocation: (location) => {
     return{
       type: "SET_USER_LOCATION",
       location
-    }
-  },
-  toggleMap:(show)=>{
-    return{
-      type:"TOGGLE_MAP",
-      show
     }
   },
   addSiteImages:(siteId, imageUrls)=>{

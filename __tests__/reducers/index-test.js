@@ -11,26 +11,10 @@ it("should handle ADD_SITES ", () => {
   expect( reducer({}, action).sites ).toEqual( sites )
 })
 
-it("should handle SET_FOCUSED_SITE ", () => {
-  const action = {
-    type: "SET_FOCUSED_SITE",
-    siteId: 1
-  }
-  expect( reducer({}, action).focusedSiteId ).toEqual( 1 )
-})
-
 it( "should handle SET_USER_LOCATION", () => {
   const action = {
     type: "SET_USER_LOCATION",
     location: { latitude: 1, longitude: 2 }
   }
   expect( reducer({}, action).userLocation ).toEqual( { latitude: 1, longitude: 2 } )
-})
-
-it( "should handle TOGGLE_MAP", () => {
-  const action = {
-    type: "TOGGLE_MAP",
-    show: true
-  }
-  expect( reducer({}, action).showMap ).toEqual( true )
 })

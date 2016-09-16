@@ -45,8 +45,6 @@ export default (state = initState, action) => {
     switch (action.type) {
       case "ADD_SITES":
         return Object.assign({}, state, {sites: action.sites})
-      case "SET_FOCUSED_SITE":
-        return Object.assign({}, state, {focusedSiteId: action.siteId})
       case "SET_USER_LOCATION":
         if(!state.sites){
           return Object.assign( {}, state, {userLocation: action.location})
@@ -55,8 +53,6 @@ export default (state = initState, action) => {
 
         const sortedSites = sortSites(sitesWithDistance)
         return Object.assign( {}, state, {userLocation: action.location, sites: sortedSites})
-      case "TOGGLE_MAP":
-        return Object.assign( {}, state, {showMap: action.show})
       case "ADD_SITE_IMAGES":
         const updatedSites = state.sites.map((site)=>{
           if(site.unique_number == action.siteId){

@@ -4,6 +4,7 @@ import SiteMarker from './SiteMarker.jsx';
 import UserMarker from './UserMarker.jsx';
 import SiteHeader from './SiteHeader.jsx';
 import Animation from 'react-addons-css-transition-group';
+import { connect } from 'react-redux';
 
 
 const createMapOptions = (maps)=>{
@@ -32,8 +33,7 @@ const SiteMap = ( props )=>{
       <SiteHeader
         site={props.focusedSite}
         showingMap={true}
-        onClickClose={props.onClickClose}
-        onToggleView={props.onToggleView}
+        canToggle={true}
       />
       </div>
     )
@@ -68,4 +68,22 @@ const SiteMap = ( props )=>{
 
 SiteMap.defaultProps = { userCenter: {latitude:1, longitude:1} };
 
-export default SiteMap
+const getFocusedSite=(sites, id)=>{
+  if(!id || !sites || sites.length === 0){return null}
+  const site = sites.find((site)=>{
+    return site.unique_number === Number(id)
+  })
+  return site
+}
+
+const mapStateToProps = (state, { params, route } )=>{
+  return {
+    sites: state.sites,
+    view: route.view,
+    filter: params.filter,
+    userCenter: state.userLocation,
+    focusedSite: getFocusedSite(state.sites, params.siteId)
+  }
+}
+
+export default connect( mapStateToProps )( SiteMap )

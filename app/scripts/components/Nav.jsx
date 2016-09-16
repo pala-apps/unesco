@@ -2,13 +2,13 @@ import React from 'react'
 import RouteLink from './RouteLink'
 import { browserHistory } from 'react-router';
 
-let Nav = (props) => {
+let Nav = ({ hasSite }) => {
 
   let navHeader = <a href="/" className="brand">
                     UNESCO
                   </a>
 
-  if ( props.hasSite ) {
+  if ( hasSite ) {
       navHeader = <button className="btn btn-simple" onClick={ browserHistory.goBack }>
                     <i className="fa fa-chevron-left" aria-hidden="true"></i>
                     Back
