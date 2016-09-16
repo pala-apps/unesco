@@ -1,5 +1,6 @@
 import React from 'react'
 import ViewLink from './ViewLink'
+import { browserHistory } from 'react-router';
 
 let Nav = (props) => {
   let btnToggleClassLeft = "btn btn-toggle-left";
@@ -23,6 +24,9 @@ let Nav = (props) => {
           <ViewLink view="/list"> <i className="fa fa-list-ul" aria-hidden="true"></i> </ViewLink>
           <ViewLink view="/map"> <i className="fa fa-map-marker" aria-hidden="true"></i> </ViewLink>
         </div>
+        <button onClick={ browserHistory.goBack }>
+         BACK
+        </button>
       </div>
     </nav>
   )

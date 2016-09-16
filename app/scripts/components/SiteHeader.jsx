@@ -11,12 +11,13 @@ function SiteHeader( {site, showingDetails, onToggleView, showingMap} ){
   if(onToggleView){
     if(showingMap){
       toggleButton = <ViewFocusLink
-                        className="btn btn-default btn-default-split"
-                        view="list"
+                        view="detail"
                         siteId= { site.unique_number }
                       >
-                        <i className="fa fa-info-circle"></i>
-                        <span className="text-small text-muted"> Site info </span>
+                        <button className="btn btn-default btn-default-split">
+                            <i className="fa fa-info-circle"></i>
+                            <span className="text-small text-muted"> Site info </span>
+                        </button>
                       </ViewFocusLink>
     }else{
       toggleButton = <ViewFocusLink
@@ -24,8 +25,10 @@ function SiteHeader( {site, showingDetails, onToggleView, showingMap} ){
                         view="map"
                         siteId= { site.unique_number }
                       >
-                      <i className="fa fa-map-marker"></i>
-                      <span className="text-small text-muted"> See on map </span>
+                        <button className="btn btn-default btn-default-split">
+                          <i className="fa fa-map-marker"></i>
+                          <span className="text-small text-muted"> See on map </span>
+                        </button>
                      </ViewFocusLink>
     }
   }

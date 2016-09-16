@@ -8,9 +8,13 @@ import sitesReducer  from './reducers'
 import AppContainer from './components/AppContainer'
 import { Provider } from 'react-redux';
 import actions from './actions/actions'
+import {Router, Route, browserHistory} from 'react-router';
+
+
 let store = createStore(sitesReducer, window.devToolsExtension && window.devToolsExtension());
 
-import {Router, Route, browserHistory} from 'react-router';
+
+
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
