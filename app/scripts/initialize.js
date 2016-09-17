@@ -8,7 +8,7 @@ import sitesReducer  from './reducers'
 import AppContainer from './components/AppContainer'
 import { Provider } from 'react-redux';
 import actions from './actions/actions'
-import {Router, Route, browserHistory} from 'react-router';
+import {Router, Route, browserHistory, IndexRedirect} from 'react-router';
 
 import SiteList from './components/SiteList';
 import SiteMap from './components/SiteMap';
@@ -20,6 +20,7 @@ render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path='/' component={AppContainer}>
+        <IndexRedirect to="/list/all" />
         <Route path='list(/:filter)' component={SiteList} view="list"/>
         <Route path='map(/:filter)(/:siteId)' component={SiteMap} view="map"/>
         <Route path='detail/site/:siteId' component={SiteFocused} view="detail"/>
