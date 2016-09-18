@@ -6,6 +6,13 @@ import RouteLink from './RouteLink';
 import { connect } from 'react-redux';
 
 let SiteList = ( props ) => {
+
+  console.log( 'props sites', props.sites )
+
+  let listView = <div className="flex flex-center vmax-full-height spinner">
+                    <i className="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>
+                  </div>
+
   const panels = props.sites.map( (site) => {
     const large = site.name_en > 50
     return (
@@ -21,18 +28,25 @@ let SiteList = ( props ) => {
     )
   })
 
+  if (props.sites.length > 0) {
+
+    listView = <div>
+                <SiteFilter filter={props.filter} view={props.view} />
+                <VirtualScroll
+                  width={100}
+                  height={800}
+                  rowHeight={180}
+                  rowCount={panels.length}
+                  rowRenderer={
+                    ({ index }) => panels[index] // Could also be a DOM element
+                  }
+                />
+               </div>
+  }
+
   return (
     <div className="container">
-      <SiteFilter filter={props.filter} view={props.view} />
-      <VirtualScroll
-        width={100}
-        height={800}
-        rowHeight={180}
-        rowCount={panels.length}
-        rowRenderer={
-          ({ index }) => panels[index] // Could also be a DOM element
-        }
-      />
+      { listView }
     </div>
   )
 }

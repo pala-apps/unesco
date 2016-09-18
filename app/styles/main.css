@@ -1323,10 +1323,28 @@ small, .small {
 
 /* Helpers */
 
+.spinner {
+  font-size: 28px;
+  color: #c1c1c1;
+}
+
 .go-right {
   float:right;
 }
 
 .full-height {
   height: 100%;
+}
+
+.vmax-full-height {
+  height: 100vmax;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  align-items: center;
+  justify-content: center;
 }

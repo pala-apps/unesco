@@ -1,6 +1,6 @@
 {
-  "name": "Unesco",
-  "short_name": "Unesco",
+  "name": "World Heritage Sites",
+  "short_name": "World Heritage Sites",
   "icons": [{
     "src": "images/university_128.png",
       "sizes": "128x128",
@@ -24,6 +24,6 @@
     }],
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ee6e73",
-  "theme_color": "#ee6e73"
+  "background_color": "#05D9BD",
+  "theme_color": "#05D9BD"
 }

@@ -16,7 +16,7 @@ const createMapOptions = (maps)=>{
 
 const SiteMap = ( props )=>{
 
-  const markers = props.sites.slice(0,50).map((site)=>{
+  const markers = props.sites.map((site)=>{
      return <SiteMarker
       key={site.unique_number}
       site={site}
