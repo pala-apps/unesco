@@ -17,6 +17,12 @@ const actions = {
       siteId,
       imageUrls
     }
+  },
+  setMapCenter:(center)=>{
+    return{
+      type:"SET_MAP_CENTER",
+      center
+    }
   }
 
 }

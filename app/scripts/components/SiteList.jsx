@@ -7,8 +7,6 @@ import { connect } from 'react-redux';
 
 let SiteList = ( props ) => {
 
-  console.log( 'props sites', props.sites )
-
   let listView = <div className="flex flex-center vmax-full-height spinner">
                     <i className="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>
                   </div>

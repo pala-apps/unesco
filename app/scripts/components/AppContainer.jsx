@@ -5,7 +5,6 @@ import Nav from './Nav'
 import actions from '../actions/actions'
 
 const AppContainer = ( props ) => {
-
   return(
     <div className="app-content">
       { props.children }

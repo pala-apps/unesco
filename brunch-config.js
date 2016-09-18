@@ -18,6 +18,7 @@ module.exports = {
            'public/scripts/bundle.js',
            'public/index.html'
         ],
+        'navigateFallback': 'index.html',
         'stripPrefix' : 'public/',
         importScripts: [
           'sw/sw-toolbox.js',
