@@ -56,3 +56,6 @@ request.onload = function(){
   getLocation()
 }
 request.send();
+
+// IOS Safari touch-action
+document.addEventListener("touchstart", function(){}, true);
