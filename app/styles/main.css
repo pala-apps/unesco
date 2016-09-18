@@ -1113,6 +1113,7 @@ footer {
 }
 
 .btn-background {
+  border: 1px sold #ffffff;
   background: rgba(5,217,189,1);
   background: -moz-linear-gradient(left, rgba(5,217,189,1) 0%, rgba(2,248,133,1) 100%);
   background: -webkit-gradient(left top, right top, color-stop(0%, rgba(5,217,189,1)), color-stop(100%, rgba(2,248,133,1)));
