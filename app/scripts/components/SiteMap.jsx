@@ -39,8 +39,6 @@ const SiteMap = ( props )=>{
     displaySites = sortSites(sitesWithDistance).slice(0,50)
   }
 
-  console.log("displaySites", displaySites)
-
   const markers = displaySites.map((site)=>{
      return <SiteMarker
       key={site.unique_number}
