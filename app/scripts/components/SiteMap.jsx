@@ -6,6 +6,8 @@ import SiteHeader from './SiteHeader.jsx';
 import Animation from 'react-addons-css-transition-group';
 import { connect } from 'react-redux';
 import { getFocusedSite } from '../focused_site_helpers/focused_site_helpers.js'
+import { addDistance, sortSites } from '../distance_helpers/distance_helpers.js'
+import actions from '../actions/actions';
 
 
 const createMapOptions = (maps)=>{
@@ -15,19 +17,9 @@ const createMapOptions = (maps)=>{
   }
 
 const SiteMap = ( props )=>{
-
-  const markers = props.sites.map((site)=>{
-     return <SiteMarker
-      key={site.unique_number}
-      site={site}
-      lat={site.latitude}
-      lng={site.longitude}
-      onMarkerClick={props.onMarkerClick}
-    />
-  })
-
   let siteInfo = null
   let center = {lat: props.userCenter.latitude, lng: props.userCenter.longitude}
+
   if(props.focusedSite){
     siteInfo = (
       <div className="panel-animate-top">
@@ -41,14 +33,35 @@ const SiteMap = ( props )=>{
     center = {lat: props.focusedSite.latitude, lng: props.focusedSite.longitude}
   }
 
+  let displaySites = props.sites.slice(0,50)
+  if(props.mapCenter){
+    const sitesWithDistance = addDistance( props.sites,props.mapCenter );
+    displaySites = sortSites(sitesWithDistance).slice(0,50)
+  }
+
+  console.log("displaySites", displaySites)
+
+  const markers = displaySites.map((site)=>{
+     return <SiteMarker
+      key={site.unique_number}
+      site={site}
+      lat={site.latitude}
+      lng={site.longitude}
+      onMarkerClick={props.onMarkerClick}
+    />
+  })
+
   return(
       <div className="map">
         <GoogleMap
-        bootstrapURLKeys={{
-          key: "AIzaSyDGZ1kk00sBmLijYR0pArzDkW4ybT09GA0"
-        }}
+          bootstrapURLKeys={{
+            key: "AIzaSyDGZ1kk00sBmLijYR0pArzDkW4ybT09GA0"
+          }}
          options= { createMapOptions }
          center={ center }
+         onChange={ (data)=>{
+           props.dispatch( actions.setMapCenter( { latitude:data.center.lat, longitude:data.center.lng }) )
+         }}
          zoom={5}>
          {markers}
          <UserMarker
@@ -75,8 +88,12 @@ const mapStateToProps = (state, { params, route } )=>{
     view: route.view,
     filter: params.filter,
     userCenter: state.userLocation,
+    mapCenter: state.mapCenter,
     focusedSite: getFocusedSite(state.sites, params.siteId)
   }
 }
+const mapDispatchToProps = (dispatch)=>{
+  return { dispatch: dispatch }
+}
 
-export default connect( mapStateToProps )( SiteMap )
+export default connect( mapStateToProps, mapDispatchToProps )( SiteMap )
